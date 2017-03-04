@@ -43,6 +43,8 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     builder (3.2.3)
+    bulma-rails (0.3.2)
+      sass (~> 3.2)
     byebug (9.0.6)
     capistrano (3.7.2)
       airbrussh (>= 1.0.0)
@@ -209,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bulma-rails (~> 0.3.2)
   byebug
   capistrano (~> 3.7, >= 3.7.1)
   capistrano-passenger (~> 0.2.0)
