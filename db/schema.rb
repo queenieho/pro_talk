@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(version: 20170304195650) do
     t.boolean  "published",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+<<<<<<< HEAD
     t.integer  "user_id"
     t.index ["user_id"], name: "index_stories_on_user_id", using: :btree
+=======
+>>>>>>> development
   end
 
   create_table "users", force: :cascade do |t|
