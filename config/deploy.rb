@@ -3,6 +3,7 @@ lock "3.7.2"
 
 set :application, "pro_talk"
 set :repo_url, "https://github.com/queenieho/pro_talk"
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 set :deploy_to, '/home/deploy/pro_talk'
 
