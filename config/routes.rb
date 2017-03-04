@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   get '/home' => 'registrations#new'
 
-  
+  devise_scope :user do
+  get '/login' => 'sessions#new'
+  delete '/logout' => 'sessions#destroy'
+  get '/signup' => 'registrations#new'
+  end
 end
