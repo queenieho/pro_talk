@@ -41,7 +41,8 @@ class StoriesController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:user_id])
+    @user = User.find_by(id: params[:user_id])
+    redirect_to login_path if @user.nil?
   end
 
   def find_story
