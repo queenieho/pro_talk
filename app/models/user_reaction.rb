@@ -1,0 +1,2 @@
+class UserReaction < ApplicationRecord
+end
