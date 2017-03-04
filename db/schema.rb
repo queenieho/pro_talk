@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170304195650) do
+=======
+ActiveRecord::Schema.define(version: 20170304201653) do
+>>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reactions", force: :cascade do |t|
+    t.boolean  "visible",    default: false
+    t.string   "kind"
+    t.string   "phrase"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +38,17 @@ ActiveRecord::Schema.define(version: 20170304195650) do
     t.index ["user_id"], name: "index_stories_on_user_id", using: :btree
 =======
 >>>>>>> development
+  end
+
+  create_table "user_reactions", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.integer  "reaction_id"
+    t.index ["reaction_id"], name: "index_user_reactions_on_reaction_id", using: :btree
+    t.index ["story_id"], name: "index_user_reactions_on_story_id", using: :btree
+    t.index ["user_id"], name: "index_user_reactions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +68,11 @@ ActiveRecord::Schema.define(version: 20170304195650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+<<<<<<< HEAD
   add_foreign_key "stories", "users"
+=======
+  add_foreign_key "user_reactions", "reactions"
+  add_foreign_key "user_reactions", "stories"
+  add_foreign_key "user_reactions", "users"
+>>>>>>> development
 end
