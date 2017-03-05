@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :users
   get 'code_of_conduct' => 'users#code_of_conduct'
-  post 'code_of_conduct' => 'users#update'
+  post 'code_of_conduct' => 'users#agree_to_code_of_conduct'
   get 'details' => 'users#details'
   post 'details' => 'users#update'
 
