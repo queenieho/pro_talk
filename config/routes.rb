@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'stories#index'
 
   devise_for :users
   devise_scope :user do
+    root 'sessions#new'
     get '/login' => 'sessions#new'
     get '/logout' => 'sessions#destroy'
     get '/signup' => 'registrations#new'
