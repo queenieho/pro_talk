@@ -28,7 +28,9 @@
                 </span>
                 <span class="nav-item">
                     <%= link_to "Logout", logout_path, class: "nav-item is-tab", class: "button" %>
-                    <%= link_to "New Story", new_story_path, class: "button is-primary" %>
+                    <% unless params[:action] == 'edit' %>
+                      <%= link_to "New Story", new_story_path, class: "button is-primary" %>
+                    <% end %>
                 </span>
             <% end %>
         </div>
