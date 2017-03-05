@@ -1,4 +1,5 @@
 class StoriesController < ApplicationController
+  before_action :confirm_login
   before_action :find_user
   before_action :find_story, except: [:index, :new, :create]
 
@@ -40,9 +41,12 @@ class StoriesController < ApplicationController
 
   private
 
+  def confirm_login
+    redirect_to login_path if current_user.nil?
+  end
+
   def find_user
     @user = User.find_by(id: params[:user_id])
-    redirect_to login_path if @user.nil?
   end
 
   def find_story
