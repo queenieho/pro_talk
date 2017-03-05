@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :stories, only: [] do
+      resources :stories, only: [:create] do
         post :add_tag, on: :member
         post :remove_tag, on: :member
       end

@@ -10,7 +10,13 @@ class StoriesController < ApplicationController
   end
 
   def new
-    @story = Story.new
+    @story = Story.new(user_id: @user)
+    if @story.save
+      redirect_to edit_story_path(@story)
+    else
+      flash[:danger] = "Oops something went wrong."
+      render :index
+    end
   end
 
   def create
@@ -39,7 +45,7 @@ class StoriesController < ApplicationController
 
   def destroy
     @story.destroy
-    redirect_to stories_path 
+    redirect_to stories_path
   end
 
   private
