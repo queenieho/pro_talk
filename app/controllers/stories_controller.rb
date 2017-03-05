@@ -5,8 +5,9 @@ class StoriesController < ApplicationController
 
   def index
     @all_stories = Story.all
-    @featured_story = @all_stories.first
-    @stories = @all_stories[1..-1]
+    @all_published_stories = @all_stories.reject {|story| story.published == false}
+    @featured_story = @all_published_stories.first
+    @stories = @all_published_stories[1..-1]
   end
 
   def new
@@ -37,7 +38,9 @@ class StoriesController < ApplicationController
 
   def update
     if @story.update(story_params)
-      redirect_to stories_path(@story)
+      @story.published = true
+      @story.save!
+      redirect_to story_path(@story)
     else
       render :edit
     end
