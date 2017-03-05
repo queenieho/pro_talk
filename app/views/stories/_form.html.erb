@@ -10,7 +10,11 @@
 
     <span style="display: none;" data-story-id="<%= @story.id %>"></span>
 
-    <%= select("story", "gender", @genders.collect {|g| [ g.description, g.id ] }, {include_blank: true}) %>
+    <%= select("story", "gender_id", @genders.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Gender' }) %>
+
+    <%= select("story", "relationship_to_abortion_id", @relationships_to_abortion.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Relationship to Abortion' }) %>
+
+    <%= select("story", "age_range_id", @age_ranges.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Age Range' }) %>
 
     <div class="tags">
         <% @tags.map do |tag| %>
@@ -21,7 +25,7 @@
     </div>
 
     <!-- TODO: Submit button shouldn't submit the form unless there's content in both input fields above. -->
-    <!-- TODO: Both buttons below submit the form -- only the `:submit` button should do taht. -->
+    <!-- TODO: Both buttons below submit the form -- only the `:submit` button should do that. -->
     <div class="control">
         <%= f.button :submit, class: "button is-primary", value: "Publish Story", id: "publish" %>
         <%= f.button :button, class: "button is-info", id: "save" do %>
