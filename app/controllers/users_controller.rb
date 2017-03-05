@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:landing]
   protect_from_forgery prepend: true
+  before_action :validate_code!, only: [:create]
   before_action :find_user, only: [:update, :edit, :destroy, :show]
 
   def index
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       redirect_to details_path
     else
@@ -42,6 +44,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def agree_to_code_of_conduct
+
+    @user.update!(agrees_to_code_of_conduct: true)
+    redirect_to stories_path
+  end
+
   def destroy
     @user.destroy
     redirect_to root_path
@@ -60,6 +68,13 @@ class UsersController < ApplicationController
 
   private
 
+  def validate_code!
+    byebug
+    return if valid_access_code?
+    flash[:alert] = 'Invalid access code! Please contact your system administrator'
+    redirect_to user_logout
+  end
+
   def find_user
     @user = User.find(params[:id])
   end
@@ -68,8 +83,17 @@ class UsersController < ApplicationController
     redirect_to login_path if current_user.nil?
   end
 
-  def user_params
-    params.require(:user).permit(:age,:city,:gender,:religion,:state,:username,:agrees_to_code_of_conduct)
+  def valid_access_code?
+    AccessCode.find_by(
+      email: user_params[:email],
+      code: user_params[:code]
+    ).exists?
   end
 
+  def user_params
+    params.require(:user).permit(
+      :age,:city,:gender,:religion,:state,
+      :username,:agrees_to_code_of_conduct,:code
+    )
+  end
 end
