@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <nav>
+      <% if current_user %>
+        <%= link_to "Logout", logout_path %>
+      <% end %>
+    </nav>
     <%= yield %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
