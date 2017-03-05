@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   protect_from_forgery prepend: true
-  before_action :find_user, only: [:update, :edit, :destroy]
+  before_action :find_user, only: [:update, :edit, :destroy, :show]
 
   def index
     @users = User.all
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to root_path
   end
 
   def details

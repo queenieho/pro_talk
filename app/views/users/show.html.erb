@@ -8,3 +8,4 @@
 </ul>
 
 <%= link_to "Edit Settings", edit_user_path(current_user) %>
+<%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Confirm delete?"} %>
