@@ -5,11 +5,5 @@ class CreateJoinTableStoriesTags < ActiveRecord::Migration[5.0]
       
       t.timestamps
     end
-
-    reversible do |dir|
-      dir.up do
-        drop_table :tags_users
-      end
-    end
   end
 end
