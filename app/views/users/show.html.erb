@@ -1,11 +1,29 @@
-<h1>Welcome <%=@user.username %>!</h1> 
-<ul>
-  <% @stories.each do |story| %>
-      <li>
-        <%= link_to story.title, story_path(story) %>
-     </li>
-  <% end %>
-</ul>
+<section class="section">
+	<%= image_tag("background3.png", :class => "bg") %>
+	<div class="columns">
+		<div class="column overlay">
+			<div class="box">
+				<h2 class="title is-2">My Stories</h2> 
+				<div class="stories-list">
+					<ul>
+					  <% @stories.each do |story| %>
+			   			<li>
+                            <div>
+                                <%= link_to story.title, story_path(story), class: "story-title" %>
+                                <% if story.content %>
+                                    <p><%= story.content.truncate(64) %></p>
+                                <% end %>
+                            </div>
+			   				
+			   			</li> 
+					  <% end %>
+					</ul>
+				</div>
+				<%= link_to "Edit Profile Settings", edit_user_path(current_user), class: "button", style: "margin-right: 6px;"%>
+				<%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Confirm delete?"}, class: "button is-danger" %>
+			</div>
+		</div>
+	</div>
+</section>
 
-<%= link_to "Edit Settings", edit_user_path(current_user) %>
-<%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Confirm delete?"} %>
+

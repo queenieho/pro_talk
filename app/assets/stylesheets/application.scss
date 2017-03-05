@@ -97,3 +97,13 @@ img.bg {
 .notification {
     z-index: 50;
 }
+
+.stories-list {
+    margin-bottom: 24px;
+    li {
+        .story-title {
+            font-size: 24px;
+        }
+        
+    }
+}
