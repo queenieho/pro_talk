@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :stories
-
+  resources :users
   get 'details' => 'users#details'
 end

@@ -1,11 +1,9 @@
 <%= simple_form_for @user do |f| %>
-  <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%= f.input :encrypted_password, hint: 'No special characters.' %>
+  <%= f.input :username, error: 'Username is mandatory, please specify one' %>
   <%= f.input :gender %>
   <%= f.input :age %>
   <%= f.input :religion %>
   <%= f.input :city %>
   <%= f.input :state %>
-  <%= f.input :remember_me, inline_label: 'Yes, remember me' %>
   <%= f.button :submit %>
 <% end %>
