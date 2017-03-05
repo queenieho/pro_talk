@@ -76,6 +76,7 @@ img.bg {
 }
 
 .overlay {
+    position: relative;
     z-index: 50;
 }
 
@@ -87,4 +88,12 @@ img.bg {
 
 .author {
     font-family: $family-sans-serif;
+}
+
+.section {
+    padding: 3rem 1rem;
+}
+
+.notification {
+    z-index: 50;
 }
