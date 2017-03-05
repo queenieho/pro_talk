@@ -1,9 +1,43 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username, error: 'Username is mandatory, please specify one' %>
-  <%= f.input :gender %>
-  <%= f.input :age %>
-  <%= f.input :religion %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.button :submit %>
-<% end %>
+<section class="section">
+	<%= image_tag("background2.png", :class => "bg") %>
+	<div class="columns">
+		<div class="column is-half is-offset-one-quarter overlay">
+			<h2 class="title is-3">Update Details</h2>
+			<div class="box">
+				<%= simple_form_for @user do |f| %>
+					<div class="control">
+						<%= f.label :username, class: "label" %>
+						<%= f.input_field :username, error: 'Username is mandatory, please specify one', class: "input" %>
+					</div>
+				  	<div class="control">
+			  			<%= f.label :gender, class: "label" %>
+				  		<%= f.input_field :gender, class: "input" %>
+				  	</div>
+				  	<div class="control">
+				  		<%= f.label :age, class: "label" %>
+				  		<%= f.input_field :age, class: "input" %>
+				  	</div>
+				  	<div class="control">
+				  		<%= f.label :religion, class: "label" %>
+				  		<%= f.input_field :religion, class: "input" %>
+				  	</div>
+				  
+				  	<div class="control">
+				  		<%= f.label :city, class: "label" %>
+				  		<%= f.input_field :city, class: "input" %>
+				  	</div>
+				  
+				  	<div class="control">
+				  		<%= f.label :state, class: "label" %>
+				  		<%= f.input_field :state, class: "input" %>
+				  	</div>
+				  
+				  	<div class="control">
+				  		<%= f.button :submit, class: "button is-primary" %>
+				  	</div>
+				<% end %>
+			</div>
+		</div>	
+	</div>
+		
+</section>
