@@ -1,6 +1,7 @@
 class CreateAgeRanges < ActiveRecord::Migration[5.0]
   def change
     create_table :age_ranges do |t|
+<<<<<<< HEAD
       t.string :description
       t.string :kind
       t.timestamps
@@ -20,6 +21,10 @@ class CreateAgeRanges < ActiveRecord::Migration[5.0]
           AgeRange.create!(attributes)
         end
       end
+=======
+
+      t.timestamps
+>>>>>>> add migrations for categorized tags
     end
   end
 end

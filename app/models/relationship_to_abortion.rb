@@ -1,4 +1,5 @@
 class RelationshipToAbortion < ApplicationRecord
+<<<<<<< HEAD
 
   def to_json
     {
@@ -7,4 +8,6 @@ class RelationshipToAbortion < ApplicationRecord
       description: description
     }
   end
+=======
+>>>>>>> add migrations for categorized tags
 end

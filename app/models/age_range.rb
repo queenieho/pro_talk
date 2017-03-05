@@ -1,4 +1,5 @@
 class AgeRange < ApplicationRecord
+<<<<<<< HEAD
 
   def to_json
     {
@@ -7,4 +8,6 @@ class AgeRange < ApplicationRecord
       description: description
     }
   end
+=======
+>>>>>>> add migrations for categorized tags
 end

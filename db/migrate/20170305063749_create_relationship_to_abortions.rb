@@ -1,6 +1,7 @@
 class CreateRelationshipToAbortions < ActiveRecord::Migration[5.0]
   def change
     create_table :relationship_to_abortions do |t|
+<<<<<<< HEAD
       t.string :description
       t.string :kind
 
@@ -23,5 +24,10 @@ class CreateRelationshipToAbortions < ActiveRecord::Migration[5.0]
         end
       end
     end
+=======
+
+      t.timestamps
+    end
+>>>>>>> add migrations for categorized tags
   end
 end
