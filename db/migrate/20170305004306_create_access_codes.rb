@@ -9,14 +9,10 @@ class CreateAccessCodes < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    initial_access_codes = [
-      {
-        email: 'nuttmeg610@gmail.com',
-        code: 'd7B9ejfoxq2Je'
-      }
-    ]
-    initial_access_codes.each do |attributes|
-      AccessCode.create!(attributes)
+    reversible do |dir|
+      dir.up do
+        AccessCode.generate!('nuttmeg610@gmail.com')
+      end
     end
   end
 end
