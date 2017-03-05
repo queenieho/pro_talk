@@ -22,7 +22,7 @@ class Api::V1::StoriesController < ApplicationController
 
   def add_tag
     begin
-      @story.tags += @tag
+      @story.tags << @tag
       @story.save!
       message = "Successfully added tag: #{ @tag.name }"
       status = 200
@@ -36,7 +36,7 @@ class Api::V1::StoriesController < ApplicationController
 
   def remove_tag
     begin
-      @story.tags -= @tag
+      @story.tags.delete(@tag)
       @story.save!
       message = "Successfully removed #{ @tag.name }"
       status = 200

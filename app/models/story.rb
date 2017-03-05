@@ -14,7 +14,8 @@ class Story < ApplicationRecord
       content: content,
       age_range: age_range.to_json,
       gender: gender.to_json,
-      relationship_to_abortion: relationship_to_abortion.to_json
+      relationship_to_abortion: relationship_to_abortion.to_json,
+      tags: tags.map(&:to_json)
     }
   end
 end
