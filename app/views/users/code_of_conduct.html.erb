@@ -1,12 +1,67 @@
-<h1>Code of Conduct</h1>
+<section class="section">
+    <%= image_tag("background4.png", :class => "bg") %>
+    <div class="columns">
+        <div class="column is-two-thirds is-offset-2 overlay">
+            <div class="box content">
+                <h1 class="title is-2">Code of Conduct</h1>
+                <p>We have some ground rules to ensure that all participants have a safe and supportive environment.</p>
+                <p>
+                    <strong>We are a pro-choice community.</strong>
+                    Keep in mind that everyone here has a right to make choices that are best for themselves and their families, and this is not a place to doubt those choices. We have zero tolerance for shaming, anti-choice language, or harassment.
+                </p>
 
-<%= simple_form_for @user do |f| %>
-  <div class="control">
-    <%= f.label "I agree to the above-listed code of conduct", class: "checkbox" %>
-    <%= f.input_field :agrees_to_code_of_conduct, error: 'You must agree before viewing stories', as: :boolean  %>
-  </div>
+                <p>
+                    <strong>We have secret identities.</strong>
+                    To ensure the safety of all participants, please do not share or ask for personal information of any kind, including but not limited to: names, email addresses, phone numbers, addresses, employment information, etc.
+                </p>
 
-  <div class="control">
-    <%= f.submit "Save", class: "button is-primary", name: "user_conduct", value: 'Save' %>
-  </div>
-<% end %>
+                <p>
+                    <strong>We are accepting.</strong>
+                    Abortion can be a challenging topic to discuss, and many of the members of Pro Talk are going through difficult experiences. Treat everyone with respect for their actions, experiences, and backgrounds.
+                </p>
+
+                <p>
+                    <strong>We’re all different.</strong>
+                    People of all races, ethnicities, cultures, and religious backgrounds have abortions, and there are many ways to interpret abortion. Members of all faiths and cultures are welcome here, but this is not the space to advocate for particular abortion choices.
+                </p>
+
+                <p>
+                    <strong>We do NOT tolerate harassment.</strong>
+                    We have zero tolerance for harassment or discrimination of any kind. By participating in Pro Talk, you agree to refrain from harassing language, threats, or shaming, or trying to convince or negatively influence others. Members who post threatening, harassing, or insulting language will be banned from the site.
+                </p>
+
+                <div class="fine-print">
+                    <strong>A note about your health.</strong>
+                    <p>
+                        Pro talk is for informational and social support purposes only, and is not a substitute for professional medical advice, diagnosis, or treatment. If you have questions about a medical condition, please consult a qualified health professional.
+                    </p>
+                    <p>
+                        If you are in immediate danger, please call <b><911</b> or go to your nearest health provider.
+                    </p>
+                    <p>
+                        If you are having thoughts of suicide or self-harm, please call <b><911</b> or contact the <b>National Suicide Prevention Lifeline at 1-800-273-8255</b>, or text the <b>Crisis Textline at 741 741</b>.
+                    </p>
+                </div>
+
+                <%= simple_form_for @user do |f| %>
+                    <div class="control">
+                        <%= f.label "I agree to the above-listed code of conduct", class: "checkbox" %>
+                        <%= f.input_field :agrees_to_code_of_conduct, error: 'You must agree before viewing stories', as: :boolean  %>
+                    </div>
+
+                    <div class="control">
+                        <%= f.submit "Save", class: "button is-primary", name: "user_conduct", value: 'Save' %>
+                    </div>
+                <% end %>
+
+                <!-- <div class="level" style="margin-top: 24px;">
+                     <div class="level-item">
+                     <a class="button is-primary is-large" href="/stories">I Understand</a>
+
+                     </div>
+                     </div>
+                   -->
+            </div>
+        </div>
+    </div>
+</section>
