@@ -38,4 +38,17 @@
             margin-top: 4px;
         }
     }
+
+}
+
+.edit-story {
+    .tags {
+        user-select: none;
+        margin-top: 4px;
+        margin-bottom: 8px;
+
+        .tag {
+            cursor: pointer;
+        }
+    }
 }
