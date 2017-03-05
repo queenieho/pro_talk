@@ -1,18 +1,47 @@
 class Api::V1::StoriesController < ApplicationController
   before_action :load_story
-  before_action :load_tag
+  before_action :load_tag, except: [:update]
   before_action :verify_author
 
+  def update
+    begin
+      @story.update!(params[:story])
+      message = 'Successfully updated story'
+      status = 200
+    rescue => e
+      message = "Unable to update story! Error: #{e}"
+      status = 500
+    end
+
+    render json: { message: message }, status: status
+  end
+
   def add_tag
-    @story.tags += @tag
-    @story.save!
-    render json: @story, status: 200
+    begin
+      @story.tags += @tag
+      @story.save!
+      message = "Successfully added tag: #{ @tag.name }"
+      status = 200
+    rescue => e
+      message = "Unable to add tag! Error: #{ e }"
+      status = 500
+    end
+
+    render json: { message: message }, status: status
   end
 
   def remove_tag
-    @story.tags -= @tag
-    @story.save!
-    render json: @story, status: 22
+    begin
+      @story.tags -= @tag
+      @story.save!
+      message = "Successfully removed #{ @tag.name }"
+      status = 200
+    rescue => e
+      message = "Unable to remove tag! Error: #{ e }"
+      status = 500
+    end
+
+    render json: { message: message }, status: status
   end
 
   private
