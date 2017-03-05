@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params.merge(user_id: @user))
+    @user = User.new(user_params)
     if @user.save
       redirect_to details_path
     else
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to stories_path(@user)
+      redirect_to stories_path
     else
       render :edit
     end
