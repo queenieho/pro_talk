@@ -18,6 +18,7 @@ $(document).ready(function() {
         var title = $("#story_title").val();
         var content = $("#story_content").val();
         var storyId = $("#story_id").val();
+        var genderId = $("#story_gender").val();
 
         if (!content) {
             return;
