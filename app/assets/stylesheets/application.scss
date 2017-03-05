@@ -17,6 +17,7 @@
 $family-serif: "Playfair Display", serif;
 $family-sans-serif: "Alegreya Sans", sans-serif;
 $family-primary: $family-sans-serif;
+$success: #fd8f7d;
 
 @import "bulma";
 @import "font-awesome";
@@ -96,4 +97,24 @@ img.bg {
 
 .notification {
     z-index: 50;
+}
+
+#landing {
+    background: url('/assets/background1.png') no-repeat center center fixed;
+
+    .logo-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+    }
+
+    .box {
+        padding: 64px;
+    }
+
+    .controls {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+    }
 }
