@@ -56,15 +56,15 @@ class StoriesController < ApplicationController
   end
 
   def support
-
+    @support_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'support'))
   end 
 
   def hug
-
+    @hug_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'hug'))
   end 
 
   def reachout
-
+    @reachout_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'reachout'))
   end 
 
   private
