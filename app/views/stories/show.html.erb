@@ -8,6 +8,10 @@
 				<div class="content">
 					<p><%= @story.content %></p>
 				</div>
+				<%= link_to image_tag("reactions/reactions_hug.png", :class => "reaction_icon"), hug_path  %>
+      	<%= link_to image_tag("reactions/reactions_reachout.png", :class => "reaction_icon"), reachout_path %>
+      	<%= link_to image_tag("reactions/reactions_support.png", :class => "reaction_icon"), support_path %>
+
 
 				<% if current_user.id == @story.user_id%>
 					<%= link_to "Edit story", edit_story_path(@story), class: "button", style: "margin-right: 6px;" %>
