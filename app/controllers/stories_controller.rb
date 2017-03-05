@@ -30,6 +30,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @message = true if @story.contact
   end
 
   def edit
@@ -68,7 +69,7 @@ class StoriesController < ApplicationController
   def reachout
     @reachout_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'reachout'))
     redirect_to story_path
-  end 
+  end
 
   private
 
