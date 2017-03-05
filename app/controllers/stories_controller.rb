@@ -52,6 +52,18 @@ class StoriesController < ApplicationController
     redirect_to stories_path
   end
 
+  def support
+
+  end 
+
+  def hug
+
+  end 
+
+  def reachout
+
+  end 
+
   private
 
   def confirm_login
