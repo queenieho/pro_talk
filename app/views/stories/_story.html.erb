@@ -5,16 +5,18 @@
     </span>
   </div>
 
-  <h1 class="title is-3"><%= link_to story.title, story_path(story) %></h1>
+  <h1 class="title is-3">
+      <%= link_to story.title.truncate(64), story_path(story) %>
+  </h1>
   <p class="description">
-    <%= story.content.truncate(200) %>
+    <%= story.content.truncate(300) %>
   </p>
   <div class="controls">
     <div class="is-pulled-right">
       <span class="icon">
         <i class="fa fa-heart"></i>
       </span>
-      <button class="button is-success"><%= link_to "Read More", story_path(story) %></button>
+      <%= link_to "Read More", story_path(story), class: "button is-success" %>
     </div>
   </div>
 </div>

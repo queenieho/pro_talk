@@ -1,6 +1,14 @@
 <section class="section">
-    <%= render @featured_story %>
     <div class="columns">
-        <%= render @stories %>
+        <div class="column">
+            <%= render @featured_story %>
+        </div>
+    </div>
+    <div class="columns is-multiline">
+        <% @stories.each do |story| %>
+            <div class="column is-half">
+                <%= render story %>
+            </div>
+        <% end %>
     </div>
 </section>
