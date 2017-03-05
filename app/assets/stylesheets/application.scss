@@ -14,4 +14,23 @@
  *= require_self
  */
 
+$family-serif: "Playfair Display", serif;
+$family-sans-serif: "Alegreya Sans", sans-serif;
+$family-primary: $family-sans-serif;
+
 @import "bulma";
+@import "font-awesome";
+
+@import "partials/stories";
+
+/* Navbar Logo Copy */
+.is-brand {
+    font-family: $family-serif;
+    font-weight: bold;
+    font-size: 36px;
+    color: #333333 !important;
+}
+
+.section {
+    padding: 3rem 0rem;
+}

@@ -1,0 +1,12 @@
+<nav class="nav has-shadow">
+    <div class="container">
+        <div class="nav-left">
+            <a class="is-brand nav-item" href="">Pro_talk</a>
+        </div>
+        <div class="nav-right">
+            <% if current_user %>
+                <%= link_to "Logout", logout_path, class: "nav-item is-tab" %>
+            <% end %>
+        </div>
+    </div>
+</nav>
