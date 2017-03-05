@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :stories
+  get 'support' => 'stories#support'
+  get 'hug' => 'stories#hug'
+  get 'reachout' => 'stories#reachout'
 
   scope '/admin' do
     resources :access_codes, only: [:index, :create, :destroy]
