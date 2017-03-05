@@ -1,0 +1,42 @@
+.story {
+    $family-serif: "Playfair Display", serif;
+
+    padding-left: 48px;
+    padding-right: 48px;
+
+    .meta {
+        color: white;
+        width: 200px;
+        height: 30px;
+        background-color: #0f7687;
+        margin-top: -1.25rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        .icon {
+            margin-top: 4px;
+            margin-left: 8px;
+        }
+    }
+
+    .title {
+        font-family: $family-serif;
+        font-weight: bold;
+        margin-top: .75rem;
+    }
+
+    .description {
+        line-height: 2;
+    }
+
+    .controls {
+        display: inline-block;
+        width: 100%;
+
+        .icon {
+            color: #f39672;
+            margin-right: 24px;
+            margin-top: 4px;
+        }
+    }
+}
