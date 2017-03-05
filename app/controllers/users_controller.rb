@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @stories = Story.where(user_id: current_user.id)
   end
 
   def edit

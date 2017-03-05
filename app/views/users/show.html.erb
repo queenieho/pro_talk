@@ -1,0 +1,10 @@
+
+<ul>
+  <% @stories.each do |story| %>
+      <li>
+        <%= link_to story.title, story_path(story) %>
+     </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Settings", edit_user_path(current_user) %>
