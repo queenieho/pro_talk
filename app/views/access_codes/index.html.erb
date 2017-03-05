@@ -1,0 +1,46 @@
+<h1>Access Codes</h1>
+
+<table>
+  <tr>
+    <th>
+      Email
+    </th>
+    <th>
+      Access Code
+    </th>
+    <th>
+      Applied?
+    </th>
+    <th>
+      Expired?
+    </th>
+    <th>
+      Delete!
+    </th>
+  </tr>
+  <% @access_codes.each do |access_code| %>
+    <tr>
+      <td>
+        <%= access_code.email %>
+      </td>
+      <td>
+        <%= access_code.code %>
+      </td>
+      <td>
+        <%= access_code.applied? ? 'Yes' : 'No' %>
+      </td>
+      <td>
+        <%= access_code.expired? ? 'Yes' : 'No' %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', access_code_path(access_code),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= simple_form_for @new_access_code do |f| %>
+  <%= f.input :email %>
+  <%= f.button :submit %>
+<% end %>
