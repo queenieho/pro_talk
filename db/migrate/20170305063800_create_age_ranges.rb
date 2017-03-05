@@ -3,6 +3,9 @@ class CreateAgeRanges < ActiveRecord::Migration[5.0]
     create_table :age_ranges do |t|
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7ddd145c9301bc0a2bd79734dd3cbe7cab1a845b
       t.string :description
       t.string :kind
       t.timestamps
@@ -22,6 +25,7 @@ class CreateAgeRanges < ActiveRecord::Migration[5.0]
           AgeRange.create!(attributes)
         end
       end
+<<<<<<< HEAD
 =======
 
 =======
@@ -46,6 +50,8 @@ class CreateAgeRanges < ActiveRecord::Migration[5.0]
           AgeRange.create!(attributes)
         end
       end
+=======
+>>>>>>> 7ddd145c9301bc0a2bd79734dd3cbe7cab1a845b
     end
   end
 end
