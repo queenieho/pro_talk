@@ -4,6 +4,7 @@
             <a class="is-brand nav-item" href="">Pro_talk</a>
         </div>
         <div class="nav-right">
+            <%= link_to "New Story", new_story_path, class: "nav-item is-tab" %>
             <% if current_user %>
                 <%= link_to "Logout", logout_path, class: "nav-item is-tab" %>
             <% end %>
