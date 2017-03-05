@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
-  
+
   # GET /resource/sign_in
   def new
     super
@@ -26,4 +26,15 @@ class SessionsController < Devise::SessionsController
     params.permit(user: [:email, :password])
   end
 
-end 
+  # def after_sign_in_path_for(resource)
+  #   if current_user.verified?
+  #     return user_details_path
+  #   elsif current_user.stories.present
+  #     return stories_path
+  #   else
+  #     return code_of_conduct_path
+  #   end
+
+  # end
+
+end
