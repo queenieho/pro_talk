@@ -33,6 +33,8 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @tags = Tag.order(:name)
+    @existing_tags = @story.tags
   end
 
   def update

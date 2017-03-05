@@ -70,3 +70,15 @@ story_two = Story.create!( title: "Duis condimentum egestas",
 
 verified_user_one.stories << story_one
 admin_user.stories << story_two
+
+tag_names = [
+  'LGBTQ',
+  'Planned pregnancy',
+  'Unplanned pregnancy',
+  'Partner perspective',
+  'Complications',
+  'Financial Support'
+]
+tag_names.each do |tag|
+  Tag.create!(name: tag)
+end
