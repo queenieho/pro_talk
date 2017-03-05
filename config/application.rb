@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-HOSTNAME = ENV['protalk.us']
+HOSTNAME = ENV['HOSTNAME']
 
 module ProTalk
   class Application < Rails::Application

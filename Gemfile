@@ -45,8 +45,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec'
-  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
+
+# NOTE: Moved out of `:development, :test` groups due to production build failures
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
