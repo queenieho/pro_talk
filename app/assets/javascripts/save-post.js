@@ -33,7 +33,7 @@ $(document).ready(function() {
         // Turn on loading indicator
         $("#save").addClass("is-loading");
 
-        $.post(`/api/v1/stories/${storyId}/save`, payload)
+        $.post("/api/v1/stories/${storyId}/save", payload)
             .done(function(result, status) {
                 hideAlert();
                 console.log("Success!", result, status);
