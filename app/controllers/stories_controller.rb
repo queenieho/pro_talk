@@ -50,7 +50,7 @@ class StoriesController < ApplicationController
   end
 
   def find_story
-    @story =  Story.find_by(params[:id])
+    @story =  Story.find(params[:id])
   end
 
   def story_params
