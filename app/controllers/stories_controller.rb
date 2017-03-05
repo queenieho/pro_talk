@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.new(story_params.merge(user_id: @user.id))
+    @story = Story.new(story_params.merge(user_id: @user))
     if @story.save
       redirect_to stories_path
     else
@@ -35,8 +35,9 @@ class StoriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @story.destroy
+    redirect_to stories_path 
   end
 
   private
@@ -46,11 +47,11 @@ class StoriesController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by(id: params[:user_id])
+    @user = current_user.id
   end
 
   def find_story
-    @story =  Story.find_by(params[:id])
+    @story =  Story.find(params[:id])
   end
 
   def story_params

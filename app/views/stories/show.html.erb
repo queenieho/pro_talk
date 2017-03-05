@@ -1,0 +1,8 @@
+<h1><%= @story.title %></h1>
+
+<p><%= @story.content %></p>
+
+<% if current_user.id == @story.user_id%>
+	<%= link_to "Edit story", edit_story_path(@story) %>
+	<%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Confirm delete?"} %>
+<% end %>
