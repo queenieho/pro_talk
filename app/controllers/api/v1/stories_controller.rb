@@ -7,7 +7,8 @@ class Api::V1::StoriesController < ApplicationController
     begin
       story_attributes = {
         title: params[:story][:title],
-        content: params[:story][:content]
+        content: params[:story][:content],
+        gender_id: params[:story][:gender_id]
       }
       @story.update!(story_attributes)
       message = 'Successfully updated story'

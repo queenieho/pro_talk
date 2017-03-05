@@ -10,6 +10,8 @@
 
     <span style="display: none;" data-story-id="<%= @story.id %>"></span>
 
+    <%= select("story", "gender", @genders.collect {|g| [ g.description, g.id ] }, {include_blank: true}) %>
+
     <div class="tags">
         <% @tags.map do |tag| %>
             <div class="tag" data-tag-id="<%= tag.id %>" data-showing="<%= @serialized_story[:tags].include?(tag.to_json) %>">
