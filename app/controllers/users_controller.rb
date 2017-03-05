@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   protect_from_forgery prepend: true
+  before_action :find_user, only: [:update, :edit, :destroy]
 
   def index
     @users = User.all
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to stories_path
     else
@@ -46,6 +46,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def find_user
+    @user = User.find(params[:id])
+  end 
 
   def confirm_login
     redirect_to login_path if current_user.nil?
