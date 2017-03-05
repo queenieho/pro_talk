@@ -1,4 +1,5 @@
 <%= simple_form_for @story do |f| %>
+    <%= f.input_field :id, type: "hidden", value: @story.id %>
     <div class="control">
         <%= f.input_field :title, class: "input", required: true, placeholder: "What is your story's title?" %>
     </div>
@@ -8,10 +9,20 @@
     </div>
 
     <span style="display: none;" data-story-id="<%= @story.id %>"></span>
+
+    <div class="tags">
+    <% @tags.map do |tag| %>
+        <div class="tag">
+            <%= "#{ tag.name } (#{ tag.id }): #{@existing_tags.include?(tag)}" %>
+        </div>
+    <% end %>
+    </div>
+
+
     <!-- TODO: Submit button shouldn't submit the form unless there's content in both input fields above. -->
     <!-- TODO: Both buttons below submit the form -- only the `:submit` button should do taht. -->
     <div class="control">
-        <%= f.button :submit, class: "button is-primary", value: "Publish Story" %>
+        <%= f.button :submit, class: "button is-primary", value: "Publish Story", id: "publish" %>
         <%= f.button :button, class: "button is-info", id: "save" do %>
             Save
         <% end %>

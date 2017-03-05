@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'stories#index'
 
   devise_for :users
   devise_scope :user do
+    root 'sessions#new'
     get '/login' => 'sessions#new'
     get '/logout' => 'sessions#destroy'
     get '/signup' => 'registrations#new'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :stories, only: [:create] do
+      resources :stories, only: [:update] do
         post :add_tag, on: :member
         post :remove_tag, on: :member
       end
