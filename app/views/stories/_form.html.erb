@@ -30,11 +30,7 @@
             <span class="select">
                 <%= select("story", "age_range_id", @age_ranges.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Age Range' }) %>
             </span>
-
         </div>
-
-        <%= f.check_box(:contact) %>
-        <%= f.label(:contact, 'Accept Messages') %><br />
 
     </div>
 
@@ -45,6 +41,11 @@
                 <%= "#{ tag.name }" %>
             </div>
         <% end %>
+    </div>
+
+    <div class="message-check">
+      <%= f.label(:contact, 'Allow Messages') %>
+      <%= f.check_box(:contact)%>
     </div>
 
     <div class="control" style="margin-top: 24px;">
