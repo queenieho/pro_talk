@@ -10,7 +10,7 @@ class AccessCodesController < ApplicationController
     begin
       AccessCode.generate!(params['access_code']['email'])
     rescue => e
-      flash[:danger] = 'An access code already exists for this email'
+      flash[:alert] = 'An access code already exists for this email'
     end
     redirect_to access_codes_path
   end
@@ -24,6 +24,10 @@ class AccessCodesController < ApplicationController
   private
 
   def verify_admin
-    current_user.present? && current_user.admin?
+    return if current_user.present? && current_user.admin?
+
+    flash[:alert] = "You don't have permissions to access codes, please " \
+                    'an administrator.'
+    redirect_to root_path
   end
 end
