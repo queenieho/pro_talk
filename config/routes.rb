@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   end
 
   resources :stories
+
+  scope '/admin' do
+    resources :access_codes, only: [:index, :create, :destroy]
+  end
+
   resources :users
   get 'details' => 'users#details'
 end
