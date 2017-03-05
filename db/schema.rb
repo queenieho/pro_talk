@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20170305012716) do
     t.integer  "age"
     t.string   "religion"
     t.boolean  "verified"
-    t.string   "surname"
     t.string   "username"
     t.string   "city"
     t.string   "state"
