@@ -1,11 +1,15 @@
 class Api::V1::StoriesController < ApplicationController
   before_action :load_story
-  before_action :load_tag, except: [:update]
+  before_action :load_tag, except: [:save]
   before_action :verify_author
 
-  def update
+  def save
     begin
-      @story.update!(params[:story])
+      story_attributes = {
+        title: params[:story][:title],
+        content: params[:story][:content]
+      }
+      @story.update!(story_attributes)
       message = 'Successfully updated story'
       status = 200
     rescue => e
@@ -55,7 +59,7 @@ class Api::V1::StoriesController < ApplicationController
   end
 
   def verify_author
-    return if current_user.present? && current_user == @story.author
+    return if current_user.present? && current_user == @story.user
     response = {
       message: 'You are not authorized to complete this action'
     }

@@ -33,14 +33,13 @@ $(document).ready(function() {
         // Turn on loading indicator
         $("#save").addClass("is-loading");
 
-        // TODO: Figure out how to get the story id
-        $.post("/api/v1/stories/" + storyId, payload)
+        $.post(`/api/v1/stories/${storyId}/save`, payload)
             .done(function(result, status) {
                 hideAlert();
                 console.log("Success!", result, status);
             })
             .fail(function(error) {
-                addAlert("Failed to save story. Please check your internet connection.", "is-danger");
+                addAlert(error.responseJSON.message, "is-danger");
                 console.log("FAIL", error, status);
             })
             .always(function() {
