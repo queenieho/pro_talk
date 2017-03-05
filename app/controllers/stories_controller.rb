@@ -33,8 +33,11 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @serialized_story = @story.to_json
     @tags = Tag.order(:name)
-    @existing_tags = @story.tags
+    @genders = Gender.all
+    @relationships_to_abortion = RelationshipToAbortion.all
+    @age_ranges = AgeRange.all
   end
 
   def update
@@ -75,7 +78,7 @@ class StoriesController < ApplicationController
   end
 
   def find_story
-    @story =  Story.find(params[:id])
+    @story = Story.find(params[:id])
   end
 
   def story_params

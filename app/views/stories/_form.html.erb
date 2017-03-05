@@ -12,7 +12,7 @@
 
     <div class="tags">
         <% @tags.map do |tag| %>
-            <div class="tag" data-tag-id="<%= tag.id %>" data-showing="<%= @existing_tags.include?(tag) %>">
+            <div class="tag" data-tag-id="<%= tag.id %>" data-showing="<%= @serialized_story[:tags].include?(tag.to_json) %>">
                 <%= "#{ tag.name }" %>
             </div>
         <% end %>
