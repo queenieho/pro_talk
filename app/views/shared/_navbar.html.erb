@@ -1,0 +1,22 @@
+<nav class="nav has-shadow">
+    <div class="container">
+        <div class="nav-left">
+            <a class="is-brand nav-item" href="">Pro_talk</a>
+        </div>
+
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        <div id="menu-toggle" class="nav-right nav-menu">
+            <% if current_user %>
+                <span class="nav-item">
+                    <%= link_to "Logout", logout_path, class: "nav-item is-tab", class: "button" %>
+                    <%= link_to "New Story", new_story_path, class: "button is-primary" %>
+                </span>
+            <% end %>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,11 @@
+<h1>Welcome <%=@user.username %>!</h1> 
+<ul>
+  <% @stories.each do |story| %>
+      <li>
+        <%= link_to story.title, story_path(story) %>
+     </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Settings", edit_user_path(current_user) %>
+<%= link_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Confirm delete?"} %>
