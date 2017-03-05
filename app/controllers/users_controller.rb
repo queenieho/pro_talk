@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:landing]
   protect_from_forgery prepend: true
   before_action :validate_code!, only: [:create]
-  before_action :find_user, only: [:update, :edit, :destroy, :show]
+  before_action :find_user, only: [:update, :edit, :destroy, :show, :agree_to_code_of_conduct]
 
   def index
     @users = User.all
