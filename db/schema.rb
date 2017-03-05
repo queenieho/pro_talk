@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305035652) do
+ActiveRecord::Schema.define(version: 20170305181111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20170305035652) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "age_ranges", force: :cascade do |t|
+    t.string   "description"
+    t.string   "kind"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string   "description"
+    t.string   "kind"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "reactions", force: :cascade do |t|
     t.boolean  "visible",    default: false
     t.string   "kind"
@@ -32,13 +46,26 @@ ActiveRecord::Schema.define(version: 20170305035652) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "relationship_to_abortions", force: :cascade do |t|
+    t.string   "description"
+    t.string   "kind"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "stories", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.boolean  "published",  default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "published",                   default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "user_id"
+    t.integer  "age_range_id"
+    t.integer  "gender_id"
+    t.integer  "relationship_to_abortion_id"
+    t.index ["age_range_id"], name: "index_stories_on_age_range_id", using: :btree
+    t.index ["gender_id"], name: "index_stories_on_gender_id", using: :btree
+    t.index ["relationship_to_abortion_id"], name: "index_stories_on_relationship_to_abortion_id", using: :btree
     t.index ["user_id"], name: "index_stories_on_user_id", using: :btree
   end
 
