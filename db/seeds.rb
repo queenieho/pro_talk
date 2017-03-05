@@ -7,69 +7,162 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-verified_user_one = User.create!( email: "hello@mail.com",
-                                  password: "password", password_confirmation: "password",
-                                  age: 25, gender: "Mx",
-                                  religion: "agnostic", verified: true,
-                                  username: "LaCroix", city: "San Francisco",
-                                  state: "CA", admin: false)
-
-admin_user = User.create!(  email: "access@mail.com",
+admin_user = User.create!(  email: "admin@mail.com",
                             password: "password", password_confirmation: "password",
-                            age: 35, gender: "Ms",
+                            age: 35, gender: "F",
                             religion: "buddhist", verified: true,
                             username: "Happy", city: "San Francisco",
                             state: "CA", admin: true)
 
-verified_user_two = User.create!( email: "user@mail.com",
+
+verified_user_one = User.create!( email: "user1@mail.com",
                                   password: "password", password_confirmation: "password",
-                                  age: 45, gender: "Mr",
-                                  religion: "unsure", verified: true,
-                                  username: "Aarav", city: "San Francisco",
+                                  age: 29, gender: "F",
+                                  religion: "NA", verified: true,
+                                  username: "LaCroix", city: "San Francisco",
                                   state: "CA", admin: false)
+
+
+verified_user_two = User.create!( email: "user2@mail.com",
+                                  password: "password", password_confirmation: "password",
+                                  age: 32, gender: "F",
+                                  religion: "NA", verified: true,
+                                  username: "lovedogs", city: "Chicago",
+                                  state: "Il", admin: false)
+
+verified_user_three = User.create!( email: "user3@mail.com",
+                                  password: "password", password_confirmation: "password",
+                                  age: 37, gender: "M",
+                                  religion: "NA", verified: true,
+                                  username: "wanderer", city: "NY",
+                                  state: "NY", admin: false)
+
+verified_user_four = User.create!( email: "user4@mail.com",
+                                  password: "password", password_confirmation: "password",
+                                  age: 25, gender: "F",
+                                  religion: "NA", verified: true,
+                                  username: "sunshine", city: "Las Vegas",
+                                  state: "NV", admin: false)
+
+verified_user_five = User.create!( email: "user5@mail.com",
+                                password: "password", password_confirmation: "password",
+                                age: 32, gender: "NB",
+                                religion: "NA", verified: true,
+                                username: "warrior", city: "Austin",
+                                state: "Tx", admin: false)
 
 unverified_user = User.create!( email: "codeless@mail.com",
                                 password: "password", password_confirmation: "password",
-                                age: 55, gender: "Mrs",
+                                age: 55, gender: "M",
                                 religion: "spiritual", verified: false,
                                 username: "Anna", city: "San Francisco",
                                 state: "CA", admin: false)
 
-story_one = Story.create!( title: "consectetur adipiscing elit",
-                          published: true,
-                          user_id: verified_user_one.id,
-                          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Donec congue convallis vulputate. Etiam est est, congue at aliquet at,
-                                    faucibus ac dolor. Sed at ligula neque. Aliquam tincidunt ullamcorper
-                                    lacus id pharetra. Maecenas porta purus vitae dolor dapibus, a efficitur
-                                    turpis ultricies. Duis vel laoreet justo. Nam posuere lacus et risus tincidunt,
-                                    ac commodo urna pulvinar. Nulla facilisi. Phasellus varius risus sed egestas tempus.
-                                    Duis vestibulum, nibh non placerat tempus, mauris lacus interdum nibh, et fringilla
-                                    risus tellus nec lacus. Mauris accumsan rutrum congue. Proin tempor magna in urna
-                                    convallis consequat. Aenean non sollicitudin sem, luctus congue tortor.
-                                    Nunc accumsan molestie magna, sit amet euismod nunc pellentesque a. Curabitur ac
-                                    ipsum pretium, aliquet dolor non, congue sem. Nunc ligula nunc, convallis sit amet
-                                    facilisis et, luctus vel justo. Nam egestas ligula eget sem commodo commodo.")
+verified_user_one.stories.create!(
+                                    title: "I got pregnant the first   time I ever had sex",
+                                    published: true,
+                                    content: "I got pregnant the first time I ever had sex. I was 18 years old and it was with a friend from high school when I was home on winter break. We weren’t in a relationship. It was the first time for the both of us. We used a condom, but we didn’t realize that it had broken. But the next morning, I woke up and I was like “f*ck, I’m pregnant!”. I called my sister and told her “I think I’m pregnant”, her reaction to it was to reassure me that everybody has sex, and I was just nervous about it.
 
-story_two = Story.create!( title: "Duis condimentum egestas",
-                          published: true,
-                          user_id: admin_user.id,
-                          content: "Duis condimentum egestas urna a sollicitudin. Aliquam pretium at tellus nec interdum.
-                                    Aenean semper metus sem, ut lacinia lorem volutpat sit amet. Duis vel rutrum mauris.
-                                    Curabitur mi ligula, vulputate quis enim in, porta eleifend orci. Cras diam turpis,
-                                    ullamcorper vitae pretium a, molestie id mi. Ut ornare lorem magna, a tempus libero posuere
-                                    quis. Donec convallis nunc vitae mi mattis, eu rutrum nibh molestie. In maximus ante erat,
-                                    nec vulputate diam aliquam vitae. Nullam ligula sem, iaculis nec libero sit amet, pretium
-                                    sodales ipsum. Sed ullamcorper quis risus nec sodales. Donec et congue dui. Duis efficitur
-                                    ligula placerat nisi volutpat, eget dapibus ipsum aliquet. Aliquam fringilla,
-                                    libero nec dictum dignissim, diam ex tempor sem, vel molestie felis orci vitae nunc.
-                                    Integer a feugiat enim. Nullam mattis aliquet nunc eu bibendum. Cras tempor mi iaculis
-                                    ornare dictum. Sed in nunc nec velit scelerisque efficitur. Aliquam malesuada pretium molestie.
-                                    Fusce eros lorem, pharetra eu eros at, maximus laoreet lorem.")
+                                    A couple of weeks later I didn’t get my period. I took a pregnancy test and it was positive. I called my sister again and told her. Since I was home for winter break, and my parents have always been really supportive I decided to tell them and expected them to be supportive about it. To my disappointment, they weren’t, and my mom didn’t talk to me for like 2 days. It was totally a surprise, I didn’t know they would even care about this. I didn’t know this would be an issue. I felt really alone, and this made me not want to tell anyone else about it, because I had expected a certain reaction and got the opposite. I felt like if my own parents, who I thought were really liberal and loving, had these feelings of shame, then the rest of the world must have that towards me also.
 
-verified_user_one.stories << story_one
-admin_user.stories << story_two
+                                    I knew immediately that I wanted to have an abortion. I was 18, I had just started college. Having a baby was just not an option. I personally didn’t feel bad about the decision. I grew up jewish, but there’s really nothing in my religion that says that would be a problem. So I knew I wanted an abortion, I went online and I googled a bunch of abortion clinics in Miami, which is where I was going to school. I found one, and talked to them. They said I needed to wait another 3 weeks, so that I was far along enough to have an abortion. I was before the medical abortion was in the US, so the only option was the D&C.
+
+                                    I told one friend, because I needed somebody to drop me off and pick me up. I didn’t tell anybody else. The day of the abortion, she dropped me off. I sat in the space, went through the whole process and I came out of the “twilight sleep” in this recovery room. I remember, because this was in early January, that the nurses were laughing with a couple of patients about how this was the day that all the New Years pregnancies were being terminated, like people were having too much fun on New Years Eve. I remember really wanting to laugh, but also feeling really conflicted about it, because it felt like we were laughing about this thing that didn’t allow having any lightheartedness or any humor about it at all.
+
+                                    I went home, and stayed in my dorm room. I lied to my roomate and told her I just wasn’t feeling well. I just kind of brushed it under the rug and didn’t think about it. But I didn’t regret it at all. This was the only choice I had ever considered. I was happy and super relieved that I could just go on with my life, continue to be a student, get a degree, study abroad, live overseas, all these things that, if I had a baby, I wouldn’t be able to do. I was really happy to be able to have the life the I wanted to have.
+
+                                    It wasn’t until like 5 years later, when I was working in public health. I was working with Sexual Health. And I was just so angry that I had this experience, and I was made to feel so bad about it, and that I was made to feel ashamed for making a decision that was totally right for me, and it was the best thing I could’ve done for myself. It was really helpful for me to come to that realization, and understand that after the abortion I felt a lot of relief, but I also felt a lot of shame, but the shame wasn’t because if what I did, but because society told me that this thing I had done was bad. I didn’t personally feel bad, but society was telling me that. It took me a while to realize that I didn’t have to feel that way, and I didn’t have to agree with that point of view, and that’s not the only way to view this.
+
+                                    I called my friend when I found out I was pregnant. He asked me what I was planning to do, and when I told him I was going to have an abortion he was super relieved and asked me not to tell his parent. I asked him if he was going to help me pay for the abortion, which was around $400. He sent me the money to pay for it. We haven’t talked about it since.
+
+                                    A couple of years after I talked to my mom. I expressed how hurtful it was for me the way they had reacted, how much I needed them at that moment, and they were just not there for me. She told me that she wasn’t even that upset about the abortion, she was just in so much shock that her ideal view of her daughter had been shattered, and she just could not feel any compassion at the moment because of how astounded by it she was and how unprepared for it she was.
+
+                                    I’ve since lived in 6 different countries. I studied abroad in Brazil, I lived in Uganda. I’ve worked in Ecuador. I’m sure I could’ve done those things with a baby, but I don’t think I would have. I met my husband when I was living in Uganda, and I was able to help all these other women there.
+
+                                    Now I’m 29, married. I don’t even think I want to have kids now, but I can make those choices, I have possibilities that are open to me, which I’m so thankful for.
+
+                                    One of the things I was really worried about after the abortion was telling romantic partners. My first serious boyfriend after I had my abortion, he was from a conservative area of Florida, and I was really nervous, because I felt ostracized by society, I had this idea that he would react negatively and say he wouldn’t want to be with me anymore. I was really nervous to tell him, but I also didn’t want to keep this thing from him. I finally told him, and he was fine with it, and told me he probably would’ve made the same decision. But I remember at the time of the abortion, that was something I was really worried about, and it turned out to be a lot easier than what I had expected.
+
+                                    Things I wish had known.
+                                    It might feel good, and bad, and all sorts of emotions. But it will feel much better over time. It was a really challenging experience, but I’m happy I went through that experience since it opened me up to this world of getting into public health, and working for women's’ health, which is something I love and has brought me a lot of fulfilment and has made me more empathetic, which I don’t think I would’ve nurtured that part of myself had I not gone through that. ")
+
+verified_user_two.stories.create!(
+                                  title: "I wished I could have read a story like this a few weeks ago",
+                                  published: true,
+                                  content: "I'm 32, single and a few months into a good job. I've dated lots of guys in the past year, which has given me plenty of material if I ever decide to write a sitcom. My younger brother is getting married in a few months and it's been an entire year of photo-filled celebrations that tend to provoke angst about my love life. A few years ago I was in a pretty serious relationship with a guy I lived with in another country (and I was on birth control the whole time) but I went off it as soon as I moved back here.
+                                  Anyways, I obsessively track my periods and other symptoms using an app called Clue. I've learned a ton about my body from doing this. It's empowering. Usually my cycle is about 35 days. But a few weeks ago, I hit day 51 with no period. My breasts were swollen and sore, my shoulders felt really tight, I was spotting a bit, and found myself waking up in the middle of the night feeling super emotional. Of course those could be premenstrual symptoms, but I couldn't get one thought out of my head: What if I'm pregnant?
+                                  I got out my phone at work and made an appointment for a pregnancy test at Planned Parenthood here in San Francisco the next day.
+                                  I peed in a cup and they called me into a room in the back. 'We ran the test. The result is positive.' My jaw dropped to the floor. Oh my god. I'd been with three guys since my last period (using condoms, of course) — two of whom I'd really enjoyed and only one of whom I was still talking to (though I was fairly certain it wasn't him since I was already feeling symptoms when I got with him.) The two women in the room were so fantastic. Non-judgmental in a 'we're all in this together' kind of way, patiently and calmly talking through the options, and reminding me that I don't have to notify the men in question — it's my choice.
+                                  All the mixed feelings. Physical pain just about everywhere. Remembering the fun I'd had with those guys. Whoa.
+                                  Here are the thoughts that spun through my head that day and all through the night as I tossed and turned, feeling so alone: No thank you. I want this to be a blip in the story of my life, not the plot twist. I don't want to bring a child into the world with question marks and shame. If I were 40, it might be different. If this man were here by my side and super excited to embark on this journey together, we could do it. But that's not the case and that's not what I want...
+                                  The next morning I called Planned Parenthood and made an appointment for an abortion a week later. They gave me some simple instructions: eat breakfast, wear underwear that can accommodate a pad, bring someone with you that can drive you home.
+                                  Once I'd made that decision, I felt stronger, with more confidence in my ability to deal with shit. I strapped on my 'body armor' — a super-supportive sports bra to cradle my sore breasts — and used that superpower to get out of jury duty and follow up on $$$ I was owed. I gave the seed inside me a secret name and bought a colorful accessory with seeds and flowers on it, to honor all of this with something physical.
+                                  The morning of my appointment, my closest friend came with me. He distracted me by making conversation about other things, then went to a nearby coffee shop to work for a few hours.
+                                  Here's how the appointment went: I peed in a cup, then waited, watching brainless movies in the waiting room with lots of other women in the same situation. Next they called me in for an abdominal ultrasound. The medical assistants said I was 7 weeks along and it was 1.08cm. I saw it on the screen, a tiny blob that was tricky to locate. I went back to the waiting room. About half an hour later, they called me in again. This time the medical assistant asked me a long list of questions and did a few blood tests. I asked for an IUD and she said it could easily be done during the same appointment. A nurse gave me 5 pills to swallow. I returned to the waiting room and let the pills kick in.
+                                  About 45 minutes later, they called my name again. This time I went into a different room, with a medical assistant who got me set up and explained that she'd be there to distract me and lead me in breathing exercises. The doctor came in and introduced herself. We chatted a bit about traveling and then she explained the procedure. Since I was only 7 weeks along, she could use a suction device (kind of like a more sophisticated turkey baster) to remove the contents of my uterus. She used a speculum to open up my cervix, then inserted the device. The whole time we chatted about traveling. The doctor then left the room to pour the contents of my uterus through a sieve, to make sure she'd gotten it. Next, she came back and inserted the IUD. This was quick and easy since my cervix was already open. It all took about 10 minutes. On a scale of 1-10 I rated the pain a 4. Then, I put my pants back on (pad in place) and walked into the recovery room. I sat there for about 10 minutes with a heating pad over my pelvis, listening to recovery instructions on audio. I checked how much I was bleeding (not thaaat much) and then signed a few papers and was ready to go.
+                                  I treated my friend to lunch at a nearby Thai restaurant. I felt a bit dizzy. Standing and lying down were more comfortable than sitting. I napped most of the rest of the day and canceled my plans for that night, but later went out for dinner by myself. The next day I felt more normal, just like I was on my period. Took a few Advil and worked from home.
+                                  The whole thing cost me no money (my insurance covered it all — Medi-Cal). The next day I made a large donation to Planned Parenthood. They took such good care of me and I am so grateful to the wonderful women and men of that amazing organization.
+                                  Overall, I feel overwhelmingly blessed to have options. I am glad to be in California within walking distance of this amazing organization rather than in other states or countries where this is not an option. Of course I would have preferred to not get pregnant in the first place, but I feel stronger having been through this ordeal.
+                                  I am sharing my story here because it's what I wished I could have read a few weeks ago. I am glad to have an IUD in place. Someday I do hope to become a mother, but that will be a conscious decision, with a man who is just as eager to become a father. I look forward to that day. Thank you for reading my story.")
+
+verified_user_three.stories.create!(
+                                  title: "Its not our body but the connection is there for us",
+                                  published: true,
+                                  content:"I’m 37 currently finishing my second career, and living in a foreign country for the past 4 years. In the time I’ve spent abroad my sisters got married and both had children. Most of my friends have also gotten married and have had offspring of their own. I’ve been living vicariously through the pictures and comments they share since I’ve been far away. Being single at the time has brought up unexpected feelings of the life I’ve had and the what ifs.
+
+                                  I almost married when I was 31 and had an unplanned pregnancy with my partner at that time.
+
+                                  I was working really hard and was very focused on my relationship, I had been planning on asking her to marry me for a while but thought that i needed to save up some more money and also needed to get a better feel for where we could end up living.
+
+                                  At the time she was studying abroad and didn’t have plans on returning to our home country. I thought that although she was still studying we could get engaged and get married by the time she finished. My life revolved on working to make as much money as I could and planning the next time I could see her and be with her. We talked often through video chat and saw each other every 3 or 4 months.
+
+                                  One of the times I went to visit her, she told me that she had missed her period. I rarely used a condom and she was on birth control. This had happened before but her period eventually came, this time it was later than usual so we decided to get a home pregnancy test. I was really nervous, I loved her ineffably, but I had my doubts about being a father so soon. Was I ready? was she ready? What would our parents say? Will she be ok? Where am I going to get the money to raise a kid?, and a whole bunch of questions just invaded my head.
+
+                                  In a matter of seconds my heart was pumping harder and faster, all of this just while shopping for the pregnancy test. As I try and look back at that moment I keep seeing her eyes filled with worry and fear, all I could do was be there to reassure her, and let her know how much I loved her.
+
+                                  I was staying at a friends house and they were out so we decided to do the test there. Those minutes where one of the longest in my life. When she told me she was pregnant a surge of mixed feelings hit me. I must admit only a few negative, mostly fear of the unknown, then I saw her break up in tears and it broke my heart. I was so preoccupied on how I felt I didn’t see that coming. She was afraid, of many things. I tried to let her know that I was there for her, that I loved her and she was not alone in this. That even though it was unplanned it filled me with joy that we could be a family. I wasn’t planning on it but I just went with the moment and told her what I had been thinking about the past months, I told her I wanted to marry her if she would have me. Not how I had it planned but it didn’t matter, I loved her, we would be a family and I would support her. We talked for a small while about our options, we could have an abortion, but at the time we both wanted to go through with it. I have always been pro choice, for some time in my life I thought that if that happened to me I would ask my partner to have an abortion, but with her it was different I really wanted us to be a family.
+
+                                  I had to return home a few days later, and I was worried as hell. I hadn’t talked to my family yet. I was trying to figure out how I was going to break the news. I was scared but was trying to put everything together so it would come out as best as possible. I had talked to my friends and my sister about it. A few weeks went by and I we had the conversation I never thought would happen. She told me she had thought it over and talked about it with her sister and she wanted to get an abortion. Again my heart raced and my whole world turned. My head filled with thoughts and mixed feelings. She asked me what I thought and what I wanted, I was shocked. I told her I would always have her back and would support her no matter what decision we made, but I didn’t want the abortion. I told her, it’s not my body, I’m not the one who would be carrying a baby for 9 months and going through the changes, I can’t make this decision for her but if that is what she wanted I was on board. I have to admit this broke me in many ways. I went with the thought that this was the best for us. She wasn’t ready, she had her whole life ahead, still studying and just starting to live her life outside of her family, this would have changed her life completely. She was younger than me by about 6 years. It was for the best we said to ourselves.
+
+                                  I asked her if she wanted me to go with her for the procedure, she told me it wasn’t necessary, that it would be ok because her sister was going to be with her. I really wanted to be with her but she had asked me to stay and I respected that. In the weeks leading to the abortion I saw her changing and I started thinking about what if we didn’t do it, but I don’t think I ever told her. I was filled with fear. I thought of her what if something happened I couldn’t lose her. I had nightmares in the time leading to the abortion and a few months after.
+
+                                  It was a weird time for me, for us. It was all done through Planned Parenthood, and we didn’t get any counseling. I later got some counseling, because I carried on with a sense of guilt over what happened.
+
+                                  My friends were with me, they saw to it that I always had someone to talk to and supported me in that time. I couldn’t really tell my partner at the time how I was feeling since what she went through was much worse. She told me about the procedure and all she experienced. I couldn’t bring myself to share my insecurities and fears with her. I tried to be there as much as I could through our video chats. I told her i would support her and be there for her and I did the best that I could. She told me that in the sonogram they said it was a boy. And I gave him a name. Thought that would help and I even talked to her about maybe doing something symbolic later to grieve what happened, although we never got around to it.
+
+                                  The procedure went well, and she didn’t have complications from the abortion, from what I could remember that she told me. I talked to her sister when the procedure was over at first to find out how it all went, I was really nervous, she told me all was ok but until I heard my partner's voice and later saw her on video chat I didn’t relax.
+
+                                  Seeing how things ended up I don’t have any regrets. I still want to form a family but that is not something you can force on someone. I’ve seen how much she’s done with her life and where she is now and I would hate to be the one that stole that from her.
+
+                                  As I write this down I do feel pain for our loss, it’s not easy carrying that decision and it’s not something I can forget. As a man there is very little we can actually do. It’s not our body but the connection is there for us, even if there is no physical pain, our hearts fill with grief. But one man’s desire is not enough to change what it is. It’s a life decision, yours and your partners. I still feel that as much as we can desire to bring a child into this world, since a woman has to carry it for 9 months and go through all those changes plus the risk of childbirth we should respect their decisions the most. It is a big decision and both should take part but we have to understand the pressure that is on women to make this choice.
+                                  ")
+verified_user_four.stories.create!(
+                                  title: "abortion stigma isolates us",
+                                  published: true,
+                                  content: "In 2010, I discovered I was pregnant. This news came as a bit of a shock to me: I spent several years in college teaching safer sex classes and assumed that my personal knowledge would somehow magically protect me from an unwanted pregnancy. I suffered from the idea that “smart, educated” women don’t need abortions and I must admit, was pretty harsh on myself when I realized abortion would be a part of my life experience. Because of this, the first emotion I remember feeling was genuine self-hatred for letting this pregnancy happen. I felt the need to keep it to myself, to suffer in silence, to not burden my boyfriend or my mother with my “mistake.”
+                                  It took several days for me to ease up on myself, show myself a bit of compassion, and really consider why I felt I should be punished and without support. Once I recognized I couldn’t afford an abortion on my own, I even went so far as to seek out “home” abortion methods to further keep the burden of my abortion out of the minds of those I loved. I took some risks, tried some herbal methods I found online, and after a few days of zero success and a growing anxiety over a pregnancy that I knew not a single part of me wanted, I decided to involve the folks who loved me.
+                                  And this is why I want to speak out – abortion stigma isolates us. It limits our options. It leaves us feeling alone in a world where, in reality, we have lots of support. Despite having support from my mother and boyfriend, I still felt like a terrible person for not “needing” an abortion, despite now understanding I needed an abortion just as much as any person who makes that choice. I felt like I had to have a medical reason, or a tragic story behind how the pregnancy occurred, or needed to be facing a bit more poverty or lacking familial support."
+                                  )
+verified_user_five.stories.create!(
+                                  title: "we need to keep sharing these stories without fear and without shame",
+                                  published: true,
+                                  content: "Last summer I waited in line for over 12 hours to testify in front of a state Senate panel against the passage of HB 2. I told them about how my mother had decided at the very last moment not to terminate her pregnancy with me and I told them about my own abortion story, which had occurred when I was 21 and was in no way ready to parent. A point in my life when my diet consisted mainly of ramen noodles, Kit Kat bars and Mountain Dew and I couldn’t even manage to keep my Neopet alive. I had talked to them about autonomy and I had talked to them about choice. But in the end as we all know, HB 2 passed and over this last year, like many Texans, I have spent a lot of time doing what I can to help fight against the devastating impact of its restrictions. Restrictions I never thought would personally impact me.
+                                  I have never been shy about telling the story about my abortion from when I was 21. It never occurred to me really to be embarrassed to talk about being too young and poor and underinsured to parent. Almost a decade later, however, I found myself in a situation suddenly where I had lost a bit of that bravado.
+                                  I realized I was pregnant again in the spring. Due to a combination of just how far along I was and a lack of availability for appointments at clinics in the DFW area it was decided that I would travel to California, where my then-partner lived, to undergo my surgical abortion. I realize just how privileged I am to have been able to do this. The places in my state where access is the most hindered are unfortunately also vastly under-resourced. People in the Rio Grande Valley for the most part cannot just get on a plane and travel 1500 miles away to have an abortion. I am a very lucky woman to have been able to do what I did.
+                                  So I went to California. I had my abortion. I came home. And eventually life carried on like it does and then suddenly it was summer and the anniversary of the filibuster rolled around and I began to receive countless emails asking for “personal accounts from the passing of HB 2.” And every single time I saw one it stabbed at my heart just a little bit. And yet every single time I hit delete.
+                                  Why? Because it was hard for me to admit to myself that even though I had spent years of my life dedicated to the pro-choice movement I had never really looked at my choice as just a choice outside of its particular set of circumstances. That is until a conversation with a colleague led to her confiding in me that she was in fact pregnant and unsure of what to do.
+                                  “Have you actually had an abortion?” she asked me. And I had to pause for a minute and think about her question. My first instinct had been to tell her the story I had rehearsed so many times before, the one that I had shared in front of the Senate committee that day in July. The one that was so much easier for people to swallow because it gave them justifications for my actions. Because I was young. Because I was broke. Because it was obvious at that point in my life I was just not ready to have a child. But she was 33 and a professional like me with a career and a life of her own. Would she really relate to that girl with all those reasons not to parent? The one who once ate at Taco Bell for dinner three weeks straight because she didn’t want to go to the store and buy dish soap? So instead I told her both stories... about how I was 21 and on birth control and poor and not ready to be a mother. And about how I was 30, and just didn’t want to have a baby. Her eyes got really wide then and she looked at me and said, “I don’t really want to be a mom either. I never really have and I didn’t think that I was normal.” And then she hugged me and she laughed until she cried and we shared two king-sized Kit Kats because I might have grown Last summer I waited in line for over 12 hours to testify in front of a state Senate panel against the passage of HB 2. I told them about how my mother had decided at the very last moment not to terminate her pregnancy with me and I told them about my own abortion story, which had occurred when I was 21 and was in no way ready to parent. A point in my life when my diet consisted mainly of ramen noodles, Kit Kat bars and Mountain Dew and I couldn’t even manage to keep my Neopet alive. I had talked to them about autonomy and I had talked to them about choice. But in the end as we all know, HB 2 passed and over this last year, like many Texans, I have spent a lot of time doing what I can to help fight against the devastating impact of its restrictions. Restrictions I never thought would personally impact me.
+                                  I have never been shy about telling the story about my abortion from when I was 21. It never occurred to me really to be embarrassed to talk about being too young and poor and underinsured to parent. Almost a decade later, however, I found myself in a situation suddenly where I had lost a bit of that bravado.
+                                  I realized I was pregnant again in the spring. Due to a combination of just how far along I was and a lack of availability for appointments at clinics in the DFW area it was decided that I would travel to California, where my then-partner lived, to undergo my surgical abortion. I realize just how privileged I am to have been able to do this. The places in my state where access is the most hindered are unfortunately also vastly under-resourced. People in the Rio Grande Valley for the most part cannot just get on a plane and travel 1500 miles away to have an abortion. I am a very lucky woman to have been able to do what I did.
+                                  So I went to California. I had my abortion. I came home. And eventually life carried on like it does and then suddenly it was summer and the anniversary of the filibuster rolled around and I began to receive countless emails asking for “personal accounts from the passing of HB 2.” And every single time I saw one it stabbed at my heart just a little bit. And yet every single time I hit delete.
+                                  Why? Because it was hard for me to admit to myself that even though I had spent years of my life dedicated to the pro-choice movement I had never really looked at my choice as just a choice outside of its particular set of circumstances. That is until a conversation with a colleague led to her confiding in me that she was in fact pregnant and unsure of what to do.
+                                  “Have you actually had an abortion?” she asked me. And I had to pause for a minute and think about her question. My first instinct had been to tell her the story I had rehearsed so many times before, the one that I had shared in front of the Senate committee that day in July. The one that was so much easier for people to swallow because it gave them justifications for my actions. Because I was young. Because I was broke. Because it was obvious at that point in my life I was just not ready to have a child. But she was 33 and a professional like me with a career and a life of her own. Would she really relate to that girl with all those reasons not to parent? The one who once ate at Taco Bell for dinner three weeks straight because she didn’t want to go to the store and buy dish soap? So instead I told her both stories... about how I was 21 and on birth control and poor and not ready to be a mother. And about how I was 30, and just didn’t want to have a baby. Her eyes got really wide then and she looked at me and said, “I don’t really want to be a mom either. I never really have and I didn’t think that I was normal.” And then she hugged me and she laughed until she cried and we shared two king-sized Kit Kats because I might have grown up over the past few years but some habits just die hard.
+                                  I haven’t decided yet if I ever want to have children in my lifetime. Right now I’m pretty sure I am leaning towards no. But I can assure you that if I do it won’t be because it is legislated. And I truly believe that one of the single most powerful things that we can do to fight this war against our reproductive rights is to end the stigma surrounding our abortion stories. To stop feeling the need to explain away our choices every single time we mention we have made them.
+                                  We have a long road ahead of us in this battle for our reproductive rights, not only in my home state of Texas but across our nation. However, the brave people like Emily Letts, Wendy Davis, and countless others who have come forward to share their own stories let us know that we are not walking it alone. And as long as we keep sharing these stories without fear and without shame and shouting together to make our voices heard there is no one who can stop listening to us. Not even those who want to.
+                                  up over the past few years but some habits just die hard.
+                                  I haven’t decided yet if I ever want to have children in my lifetime. Right now I’m pretty sure I am leaning towards no. But I can assure you that if I do it won’t be because it is legislated. And I truly believe that one of the single most powerful things that we can do to fight this war against our reproductive rights is to end the stigma surrounding our abortion stories. To stop feeling the need to explain away our choices every single time we mention we have made them.
+                                  We have a long road ahead of us in this battle for our reproductive rights, not only in my home state of Texas but across our nation. However, the brave people like Emily Letts, Wendy Davis, and countless others who have come forward to share their own stories let us know that we are not walking it alone. And as long as we keep sharing these stories without fear and without shame and shouting together to make our voices heard there is no one who can stop listening to us. Not even those who want to."
+)
 
 tag_names = [
   'LGBTQ',
