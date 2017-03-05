@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
     @stories = Story.where(user_id: current_user.id)
   end
 
