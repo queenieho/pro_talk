@@ -1,0 +1,26 @@
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <div class="box story featured">
+                <div class="meta">
+                    <span class="icon">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                </div>
+
+                <h1 class="title is-3"><%= link_to story.title, story_path(story) %></h1>
+                <p class="description">
+                    <%= story.content.truncate(100) %>
+                </p>
+                <div class="controls">
+                    <div class="is-pulled-right">
+                        <span class="icon">
+                            <i class="fa fa-heart"></i>
+                        </span>
+                        <button class="button is-success"><%= link_to "Read More", story_path(story) %></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
