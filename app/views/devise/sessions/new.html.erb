@@ -1,6 +1,7 @@
 <section class="section">
+    <%= image_tag("background1.png", :class => "bg") %>
     <div class="columns">
-        <div class="column is-half is-offset-one-quarter">
+        <div class="column is-half is-offset-one-quarter overlay">
             <h2 class="title is-3">Log in</h2>
             <div class="box">
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

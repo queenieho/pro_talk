@@ -1,7 +1,15 @@
 <nav class="nav has-shadow">
     <div class="container">
         <div class="nav-left">
-            <a class="is-brand nav-item" href="">Pro_talk</a>
+            <% if current_user %>
+                <a class="is-brand nav-item" href="/stories">
+                    <%= image_tag("ProTalk_Logo.png") %>
+                </a>
+            <% else %>
+                <a class="is-brand nav-item" href="/">
+                    <%= image_tag("ProTalk_Logo.png") %>
+                </a>
+            <% end %>
         </div>
 
         <span class="nav-toggle">
@@ -12,6 +20,12 @@
 
         <div id="menu-toggle" class="nav-right nav-menu">
             <% if current_user %>
+                <span class="nav-item is-tab">
+                    <%= link_to "Stories", stories_path %>
+                </span>
+                <span class="nav-item is-tab">
+                    <%= link_to "My Stories", user_path(current_user) %>
+                </span>
                 <span class="nav-item">
                     <%= link_to "Logout", logout_path, class: "nav-item is-tab", class: "button" %>
                     <%= link_to "New Story", new_story_path, class: "button is-primary" %>
