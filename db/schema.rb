@@ -54,11 +54,19 @@ ActiveRecord::Schema.define(version: 20170305181111) do
   end
 
   create_table "stories", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "title",      default: ''
     t.text   "content",    default: ''
     t.boolean  "published",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+=======
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "published",                   default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+>>>>>>> add gender, relationship to abortion, and age range to story as possible options; add to_json for serializing data
     t.integer  "user_id"
     t.integer  "age_range_id"
     t.integer  "gender_id"

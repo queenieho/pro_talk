@@ -4,8 +4,11 @@ class Story < ApplicationRecord
   belongs_to :age_range, optional: true
   belongs_to :relationship_to_abortion, optional: true
   belongs_to :gender, optional: true
+<<<<<<< HEAD
 
   scope :published, -> { where(published: true) }
+=======
+>>>>>>> add gender, relationship to abortion, and age range to story as possible options; add to_json for serializing data
 
   def to_json
     {

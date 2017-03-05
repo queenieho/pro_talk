@@ -2,6 +2,9 @@ class CreateRelationshipToAbortions < ActiveRecord::Migration[5.0]
   def change
     create_table :relationship_to_abortions do |t|
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> add gender, relationship to abortion, and age range to story as possible options; add to_json for serializing data
       t.string :description
       t.string :kind
 
@@ -24,10 +27,13 @@ class CreateRelationshipToAbortions < ActiveRecord::Migration[5.0]
         end
       end
     end
+<<<<<<< HEAD
 =======
 
       t.timestamps
     end
 >>>>>>> add migrations for categorized tags
+=======
+>>>>>>> add gender, relationship to abortion, and age range to story as possible options; add to_json for serializing data
   end
 end
