@@ -75,7 +75,7 @@ img.bg {
     }
 }
 
-.auth-form {
+.overlay {
     z-index: 50;
 }
 
@@ -83,4 +83,8 @@ img.bg {
     .subtitle.is-6 {
         font-family: $family-sans-serif;
     }
+}
+
+.author {
+    font-family: $family-sans-serif;
 }
