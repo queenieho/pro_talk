@@ -5,11 +5,7 @@ class Api::V1::StoriesController < ApplicationController
 
   def save
     begin
-      story_attributes = {
-        title: params[:story][:title],
-        content: params[:story][:content]
-      }
-      @story.update!(story_attributes)
+      @story.update!(story_params)
       message = 'Successfully updated story'
       status = 200
     rescue => e
@@ -17,12 +13,12 @@ class Api::V1::StoriesController < ApplicationController
       status = 500
     end
 
-    render json: { message: message }, status: status
+    render json: { message: message, data: @story.to_json }, status: status
   end
 
   def add_tag
     begin
-      @story.tags += @tag
+      @story.tags << @tag
       @story.save!
       message = "Successfully added tag: #{ @tag.name }"
       status = 200
@@ -36,7 +32,7 @@ class Api::V1::StoriesController < ApplicationController
 
   def remove_tag
     begin
-      @story.tags -= @tag
+      @story.tags.delete(@tag)
       @story.save!
       message = "Successfully removed #{ @tag.name }"
       status = 200
@@ -64,5 +60,12 @@ class Api::V1::StoriesController < ApplicationController
       message: 'You are not authorized to complete this action'
     }
     render json: response.to_json, status: 403 # Permission denied
+  end
+
+  def story_params
+    params.require(:story).permit(
+      :title, :content, :published,
+      :gender_id, :relationship_to_abortion_id, :age_range_id
+    )
   end
 end
