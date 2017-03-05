@@ -18,6 +18,9 @@ $(document).ready(function() {
         var title = $("#story_title").val();
         var content = $("#story_content").val();
         var storyId = $("#story_id").val();
+        var genderId = $("#story_gender_id").val();
+        var relationshipToAbortionId = $("#story_relationship_to_abortion_id").val();
+        var ageRangeId = $("#story_age_range_id").val();
 
         if (!content) {
             return;
@@ -26,7 +29,10 @@ $(document).ready(function() {
         var payload = {
             story: {
                 title: title,
-                content: content
+                content: content,
+                gender_id: genderId,
+                relationship_to_abortion_id: relationshipToAbortionId,
+                age_range_id: ageRangeId
             }
         };
 
