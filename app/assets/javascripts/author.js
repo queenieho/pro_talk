@@ -17,21 +17,24 @@ $(document).ready(function() {
     function saveStory() {
         var title = $("#story_title").val();
         var content = $("#story_content").val();
+        var storyId = $("#story_id").val();
 
         if (!content) {
             return;
         }
 
         var payload = {
-            story_title: title,
-            story_content: content
+            story: {
+                title: title,
+                content: content
+            }
         };
 
         // Turn on loading indicator
         $("#save").addClass("is-loading");
 
         // TODO: Figure out how to get the story id
-        $.post("/api/v1/stories/5432/save", payload)
+        $.post("/api/v1/stories/" + storyId, payload)
             .done(function(result, status) {
                 hideAlert();
                 console.log("Success!", result, status);
