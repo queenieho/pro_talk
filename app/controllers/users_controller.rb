@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to details_path
     else
-      flash[:danger] = "Your user details did not save."
+      flash[:alert] = "Your user details did not save."
       render :new
     end
   end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
-  end 
+  end
 
   def confirm_login
     redirect_to login_path if current_user.nil?

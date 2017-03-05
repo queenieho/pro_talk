@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   before_action :find_story, except: [:index, :new, :create]
 
   def index
-    @all_stories = Story.all
+    @all_stories = Story.published
     @featured_story = @all_stories.first
     @stories = @all_stories[1..-1]
   end
@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
     if @story.save
       redirect_to edit_story_path(@story)
     else
-      flash[:danger] = "Oops something went wrong."
+      flash[:alert] = "Oops something went wrong."
       render :index
     end
   end
@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
     if @story.save
       redirect_to stories_path
     else
-      flash[:danger] = "Your story did not save."
+      flash[:alert] = "Your story did not save."
       render :new
     end
   end
@@ -39,7 +39,9 @@ class StoriesController < ApplicationController
 
   def update
     if @story.update(story_params)
-      redirect_to stories_path(@story)
+      @story.published = true
+      @story.save!
+      redirect_to story_path(@story)
     else
       render :edit
     end
