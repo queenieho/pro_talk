@@ -16,4 +16,13 @@ Rails.application.routes.draw do
 
   resources :users
   get 'details' => 'users#details'
+
+  namespace :api do
+    namespace :v1 do
+      resources :stories, only: [] do
+        post :add_tag, on: :member
+        post :remove_tag, on: :member
+      end
+    end
+  end
 end
