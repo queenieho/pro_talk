@@ -55,7 +55,7 @@ class Api::V1::StoriesController < ApplicationController
   end
 
   def verify_author
-    return if current_user.present? && current_user == @story.user
+    return if current_user.present? && current_user == @story.user || current_user.admin?
     response = {
       message: 'You are not authorized to complete this action'
     }
