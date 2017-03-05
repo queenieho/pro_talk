@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'users#landing'
+
   devise_for :users
   devise_scope :user do
-    root 'sessions#new'
     get '/login' => 'sessions#new'
     get '/logout' => 'sessions#destroy'
     get '/signup' => 'registrations#new'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  get 'code_of_conduct' => 'users#code_of_conduct'
+  post 'code_of_conduct' => 'users#code_of_conduct'
   get 'details' => 'users#details'
 
   namespace :api do

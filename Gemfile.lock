@@ -91,6 +91,7 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -227,6 +228,7 @@ DEPENDENCIES
   devise (~> 4.2)
   dotenv-rails
   font-awesome-rails
+  hirb
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

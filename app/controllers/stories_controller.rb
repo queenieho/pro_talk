@@ -33,8 +33,11 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @serialized_story = @story.to_json
     @tags = Tag.order(:name)
-    @existing_tags = @story.tags
+    @genders = Gender.all
+    @relationships_to_abortion = RelationshipToAbortion.all
+    @age_ranges = AgeRange.all
   end
 
   def update
@@ -53,15 +56,15 @@ class StoriesController < ApplicationController
   end
 
   def support
-
+    @support_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'support'))
   end 
 
   def hug
-
+    @hug_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'hug'))
   end 
 
   def reachout
-
+    @reachout_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'reachout'))
   end 
 
   private
@@ -75,11 +78,14 @@ class StoriesController < ApplicationController
   end
 
   def find_story
-    @story =  Story.find(params[:id])
+    @story = Story.find(params[:id])
   end
 
   def story_params
-    params.require(:story).permit(:title,:content,:published)
+    params.require(:story).permit(
+      :title, :content, :published,
+      :gender_id, :relationship_to_abortion_id, :age_range_id
+    )
   end
 
 end

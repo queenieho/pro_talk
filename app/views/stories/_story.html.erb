@@ -1,8 +1,21 @@
 <div class="box story featured">
   <div class="meta">
-    <span class="icon">
-      <i class="fa fa-heart"></i>
-    </span>
+    <div class="tag-icons">
+      <% if story.gender.present? %>
+        <span class="icon">
+          <%= image_tag story.gender.icon_path %>
+        </span>
+      <% end %>
+      <% if story.relationship_to_abortion.present? %>
+        <span class="icon">
+          <%= image_tag story.relationship_to_abortion.icon_path %>
+        </span>
+      <% end %><% if story.age_range.present? %>
+        <span class="icon">
+          <%= image_tag story.age_range.icon_path %>
+        </span>
+      <% end %>
+    </div>
   </div>
 
   <h1 class="title is-3">

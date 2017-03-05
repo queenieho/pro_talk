@@ -10,19 +10,43 @@
 
     <span style="display: none;" data-story-id="<%= @story.id %>"></span>
 
-    <div class="tags">
+    <div class="control is-grouped">
+        <div class="control">
+            <label class="label" for="">Gender (optional)</label>
+            <span class="select">
+                <%= select("story", "gender_id", @genders.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Gender' }) %>
+            </span>
+        </div>
+
+        <div class="control">
+            <label class="label" for="">Relationship (optional)</label>
+            <span class="select">
+                <%= select("story", "relationship_to_abortion_id", @relationships_to_abortion.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Relationship to Abortion' }) %>
+            </span>
+        </div>
+
+        <div class="control">
+            <label class="label" for="">Age Range (optional)</label>
+            <span class="select">
+                <%= select("story", "age_range_id", @age_ranges.collect {|g| [ g.description, g.id ] }, { include_blank: 'Select Age Range' }) %>
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="tags control">
+        <label class="label" for="">Tags (optional)</label>
         <% @tags.map do |tag| %>
-            <div class="tag" data-tag-id="<%= tag.id %>" data-showing="<%= @existing_tags.include?(tag) %>">
+            <div class="tag" data-tag-id="<%= tag.id %>" data-showing="<%= @serialized_story[:tags].include?(tag.to_json) %>">
                 <%= "#{ tag.name }" %>
             </div>
         <% end %>
     </div>
 
-    <!-- TODO: Submit button shouldn't submit the form unless there's content in both input fields above. -->
-    <!-- TODO: Both buttons below submit the form -- only the `:submit` button should do taht. -->
-    <div class="control">
-        <%= f.button :submit, class: "button is-primary", value: "Publish Story", id: "publish" %>
-        <%= f.button :button, class: "button is-info", id: "save" do %>
+    <div class="control" style="margin-top: 24px;">
+        <%= f.button :submit, class: "button is-large is-primary", value: "Publish Story", id: "publish" %>
+        <%= f.button :button, class: "button is-large is-info", id: "save" do %>
             Save
         <% end %>
     </div>

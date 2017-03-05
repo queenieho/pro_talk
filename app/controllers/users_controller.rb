@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:landing]
   protect_from_forgery prepend: true
   before_action :find_user, only: [:update, :edit, :destroy, :show]
 
@@ -43,6 +43,12 @@ class UsersController < ApplicationController
 
   def details
     @user = current_user
+  end
+
+  def code_of_conduct
+  end
+
+  def landing
   end
 
   private
