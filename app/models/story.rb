@@ -8,7 +8,6 @@ class Story < ApplicationRecord
   has_many :reactions
 
   scope :published, -> { where(published: true) }
-end
 
   def to_json
     {

@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :stories
-  has_many :reactions, through :user_reactions
+  has_many :reactions, through: :user_reactions
 end
