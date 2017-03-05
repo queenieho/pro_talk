@@ -44,13 +44,6 @@ class AddUserStories < ActiveRecord::Migration[5.0]
                                     username: "warrior", city: "Austin",
                                     state: "Tx", admin: false)
 
-    unverified_user = User.create!( email: "codeless@mail.com",
-                                    password: "password", password_confirmation: "password",
-                                    age: 55, gender: "M",
-                                    religion: "spiritual", verified: false,
-                                    username: "Anna", city: "San Francisco",
-                                    state: "CA", admin: false)
-
     verified_user_one.stories.create!(
                                         title: "I got pregnant the first   time I ever had sex",
                                         published: true,
@@ -160,5 +153,22 @@ class AddUserStories < ActiveRecord::Migration[5.0]
   end
 
   def down
+    admin = User.find_by(email:"admin@mail.com")
+    admin.destroy!
+    user = User.find_by(email:"user1@mail.com")
+    user.stories.destroy_all
+    user.destroy!
+    user = User.find_by(email:"user2@mail.com")
+    user.stories.destroy_all
+    user.destroy!
+    user = User.find_by(email:"user3@mail.com")
+    user.stories.destroy_all
+    user.destroy!
+    user = User.find_by(email:"user4@mail.com")
+    user.stories.destroy_all
+    user.destroy!
+    user = User.find_by(email:"user5@mail.com")
+    user.stories.destroy_all
+    user.destroy!
   end
 end
