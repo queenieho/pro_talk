@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProTalk</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Pro Talk</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Playfair+Display" rel="stylesheet">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <nav>
-      <% if current_user %>
-        <%= link_to "Logout", logout_path %>
-      <% end %>
-    </nav>
-    <%= yield %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-  </body>
+    <body>
+        <%= render "shared/navbar" %>
+
+        <div class="container">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+
+            <%= yield %>
+        </div>
+
+    </body>
 </html>
