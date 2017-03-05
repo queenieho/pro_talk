@@ -6,6 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    byebug
+    params[:user][:password_confirmation] = params[:user][:password]
     @code_for_access_code = AccessCode.find(params[:user][:code])
 
     # if
