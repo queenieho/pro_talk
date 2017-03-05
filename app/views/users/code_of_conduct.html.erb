@@ -44,23 +44,18 @@
                 </div>
 
                 <%= simple_form_for @user do |f| %>
-                    <div class="control">
-                        <%= f.label "I agree to the above-listed code of conduct", class: "checkbox" %>
+                    <div class="control" style="margin-top: 24px;">
+                        <label class="checkbox" for="agrees_to_code_of_conducts">
                         <%= f.input_field :agrees_to_code_of_conduct, error: 'You must agree before viewing stories', as: :boolean  %>
+                            I agree to the code of conduct
+                        </label>
                     </div>
 
-                    <div class="control">
-                        <%= f.submit "Save", class: "button is-primary", name: "user_conduct", value: 'Save' %>
+                    <div class="level" style="margin-top: 24px;">
+                        <%= f.submit "Proceed", class: "button is-large is-primary", name: "user_conduct", value: 'Proceed' %>
                     </div>
                 <% end %>
 
-                <!-- <div class="level" style="margin-top: 24px;">
-                     <div class="level-item">
-                     <a class="button is-primary is-large" href="/stories">I Understand</a>
-
-                     </div>
-                     </div>
-                   -->
             </div>
         </div>
     </div>
