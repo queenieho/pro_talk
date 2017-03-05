@@ -1,3 +1,4 @@
+
 <ul>
   <% @stories.each do |story| %>
       <li>
@@ -5,3 +6,5 @@
      </li>
   <% end %>
 </ul>
+
+<%= link_to "Edit Settings", edit_user_path(current_user) %>
