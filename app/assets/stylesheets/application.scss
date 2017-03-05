@@ -100,7 +100,7 @@ img.bg {
 }
 
 #landing {
-    background: url('/assets/background1.png') no-repeat center center fixed;
+    background: url(image_path("background1.png")) no-repeat center center fixed;
 
     .logo-container {
         margin-left: auto;
