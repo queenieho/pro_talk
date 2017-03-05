@@ -4,7 +4,9 @@ class StoriesController < ApplicationController
   before_action :find_story, except: [:index, :new, :create]
 
   def index
-    @stories = Story.all
+    @all_stories = Story.all
+    @featured_story = @all_stories.first
+    @stories = @all_stories[1..-1]
   end
 
   def new
