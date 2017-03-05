@@ -1,0 +1,6 @@
+<%= simple_form_for @story do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+    <%= f.input :published, inline_label: 'Yes, publish my story' %>
+  <%= f.button :submit %>
+<% end %>
