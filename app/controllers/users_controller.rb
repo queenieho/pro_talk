@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(verified: true))
 
     if @user.save
       redirect_to details_path
@@ -44,12 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def agree_to_code_of_conduct
-
-    @user.update!(agrees_to_code_of_conduct: true)
-    redirect_to stories_path
-  end
-
   def destroy
     @user.destroy
     redirect_to root_path
@@ -69,9 +63,8 @@ class UsersController < ApplicationController
   private
 
   def validate_code!
-    byebug
     return if valid_access_code?
-    flash[:alert] = 'Invalid access code! Please contact your system administrator'
+    flash[:alert] = 'Invalid access code! Please contact your system administrator.'
     redirect_to user_logout
   end
 
@@ -84,10 +77,7 @@ class UsersController < ApplicationController
   end
 
   def valid_access_code?
-    AccessCode.find_by(
-      email: user_params[:email],
-      code: user_params[:code]
-    ).exists?
+    true
   end
 
   def user_params
