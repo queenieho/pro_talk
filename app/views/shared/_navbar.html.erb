@@ -1,9 +1,15 @@
 <nav class="nav has-shadow">
     <div class="container">
         <div class="nav-left">
-            <a class="is-brand nav-item" href="">
-                <%= image_tag("ProTalk_Logo.png") %>
-            </a>
+            <% if current_user %>
+                <a class="is-brand nav-item" href="/stories">
+                    <%= image_tag("ProTalk_Logo.png") %>
+                </a>
+            <% else %>
+                <a class="is-brand nav-item" href="/">
+                    <%= image_tag("ProTalk_Logo.png") %>
+                </a>
+            <% end %>
         </div>
 
         <span class="nav-toggle">

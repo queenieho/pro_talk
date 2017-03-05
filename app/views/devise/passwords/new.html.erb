@@ -1,7 +1,7 @@
 <section class="section">
     <%= image_tag("background3.png", :class => "bg") %>
     <div class="columns">
-        <div class="column is-half is-offset-one-quarter auth-form">
+        <div class="column is-half is-offset-one-quarter overlay">
             <h2 class="title is-3">Forgot your password?</h2>
             <div class="box">
                 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
