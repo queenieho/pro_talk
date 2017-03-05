@@ -12,8 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170305181111) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "stories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "published",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "access_codes", force: :cascade do |t|
     t.string   "email"
@@ -79,7 +84,7 @@ ActiveRecord::Schema.define(version: 20170305181111) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
+    t.datetime "created_aton", null: false
     t.datetime "updated_at", null: false
   end
 
@@ -103,20 +108,13 @@ ActiveRecord::Schema.define(version: 20170305181111) do
     t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "gender"
-    t.integer  "age"
-    t.string   "religion"
-    t.boolean  "verified"
-    t.string   "username"
-    t.string   "city"
-    t.string   "state"
-    t.boolean  "admin",                  default: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> Stashed changes
   end
 
   add_foreign_key "stories", "users"
