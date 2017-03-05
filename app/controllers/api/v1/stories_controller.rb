@@ -6,13 +6,13 @@ class Api::V1::StoriesController < ApplicationController
   def add_tag
     @story.tags += @tag
     @story.save!
-    render json: @story, status: 200
+    render json: { message: "#{ @tag.name } added" }, status: 200
   end
 
   def remove_tag
     @story.tags -= @tag
     @story.save!
-    render json: @story, status: 22
+    render json: { message: "#{ @tag.name } removed" }, status: 200
   end
 
   private
