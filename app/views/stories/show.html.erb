@@ -1,8 +1,20 @@
-<h1><%= @story.title %></h1>
+<section class="section">
+	<%= image_tag("background1.png", :class => "bg") %>
+	<div class="columns">
+		<div class="column overlay">
+			<div class="box">
+				<h1 class="title is-2"><%= @story.title %></h1>
+				<h2 class="subtitle is-3 author">By <%= @story.user.username %></h2>
+				<div class="content">
+					<p><%= @story.content %></p>
+				</div>
 
-<p><%= @story.content %></p>
-
-<% if current_user.id == @story.user_id%>
-	<%= link_to "Edit story", edit_story_path(@story) %>
-	<%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Confirm delete?"} %>
-<% end %>
+				<% if current_user.id == @story.user_id%>
+					<%= link_to "Edit story", edit_story_path(@story), class: "button", style: "margin-right: 6px;" %>
+					<%= link_to "Delete story", story_path(@story), method: :delete, data: {confirm: "Confirm delete?"}, class: "button is-danger"%>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	
+</section>
