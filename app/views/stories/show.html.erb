@@ -6,7 +6,7 @@
 				<h1 class="title is-2"><%= @story.title %></h1>
 				<h2 class="subtitle is-3 author">By <%= @story.user.username %></h2>
 				<div class="content">
-					<p><%= @story.content %></p>
+					<p><%= simple_format(@story.content) %></p>
 				</div>
 
 				<% if current_user.id == @story.user_id%>
