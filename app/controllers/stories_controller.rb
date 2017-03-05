@@ -58,12 +58,12 @@ class StoriesController < ApplicationController
   def support
     @support_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'support'))
     redirect_to story_path
-  end 
+  end
 
   def hug
     @hug_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'hug'))
     redirect_to story_path
-  end 
+  end
 
   def reachout
     @reachout_reaction = UserReaction.create!(user_id: @user, story_id: @story, reaction_id: Reaction.find_by(kind:'reachout'))
@@ -87,7 +87,7 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(
       :title, :content, :published,
-      :gender_id, :relationship_to_abortion_id, :age_range_id
+      :gender_id, :relationship_to_abortion_id, :age_range_id, :contact
     )
   end
 

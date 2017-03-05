@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305200948) do
+ActiveRecord::Schema.define(version: 20170305211035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170305200948) do
     t.integer  "age_range_id"
     t.integer  "gender_id"
     t.integer  "relationship_to_abortion_id"
+    t.boolean  "contact"
     t.index ["age_range_id"], name: "index_stories_on_age_range_id", using: :btree
     t.index ["gender_id"], name: "index_stories_on_gender_id", using: :btree
     t.index ["relationship_to_abortion_id"], name: "index_stories_on_relationship_to_abortion_id", using: :btree
