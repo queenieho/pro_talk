@@ -1,6 +1,18 @@
 <%= simple_form_for @story do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-    <%= f.input :published, inline_label: 'Yes, publish my story' %>
-  <%= f.button :submit %>
+    <div class="control">
+        <%= f.input_field :title, class: "input", required: true, placeholder: "What is your story's title?" %>
+    </div>
+
+    <div class="control">
+        <%= f.text_area :content, class: "textarea", placeholder: "Your story goes here." %>
+    </div>
+
+    <!-- TODO: Submit button shouldn't submit the form unless there's content in both input fields above. -->
+    <!-- TODO: Both buttons below submit the form -- only the `:submit` button should do taht. -->
+    <div class="control">
+        <%= f.button :submit, class: "button is-primary", value: "Publish Story" %>
+        <%= f.button :button, class: "button is-info", id: "save" do %>
+            Save
+        <% end %>
+    </div>
 <% end %>
