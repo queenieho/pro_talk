@@ -9,7 +9,9 @@
 					<p><%= simple_format(@story.content) %></p>
 				</div>
 				<%= link_to image_tag("reactions/reactions_hug.png", :class => "reaction_icon"), hug_path  %>
-      	<%= link_to image_tag("reactions/reactions_reachout.png", :class => "reaction_icon"), reachout_path %>
+				<% if @message %>
+      		<%= link_to image_tag("reactions/reactions_reachout.png", :class => "reaction_icon"), reachout_path %>
+				<% end %>
       	<%= link_to image_tag("reactions/reactions_support.png", :class => "reaction_icon"), support_path %>
 
 
@@ -20,5 +22,5 @@
 			</div>
 		</div>
 	</div>
-	
+
 </section>
