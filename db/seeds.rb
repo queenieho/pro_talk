@@ -162,7 +162,10 @@ verified_user_five.stories.create!(
                                   up over the past few years but some habits just die hard.
                                   I haven’t decided yet if I ever want to have children in my lifetime. Right now I’m pretty sure I am leaning towards no. But I can assure you that if I do it won’t be because it is legislated. And I truly believe that one of the single most powerful things that we can do to fight this war against our reproductive rights is to end the stigma surrounding our abortion stories. To stop feeling the need to explain away our choices every single time we mention we have made them.
                                   We have a long road ahead of us in this battle for our reproductive rights, not only in my home state of Texas but across our nation. However, the brave people like Emily Letts, Wendy Davis, and countless others who have come forward to share their own stories let us know that we are not walking it alone. And as long as we keep sharing these stories without fear and without shame and shouting together to make our voices heard there is no one who can stop listening to us. Not even those who want to."
-)
+                                  )
+
+AccessCode.generate!(verified_user_one.email)
+AccessCode.generate!(verified_user_two.email)
 
 tag_names = [
   'LGBTQ',
@@ -172,6 +175,7 @@ tag_names = [
   'Complications',
   'Financial Support'
 ]
+
 tag_names.each do |tag|
   Tag.create!(name: tag)
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/login' => 'sessions#new'
     get '/logout' => 'sessions#destroy'
     get '/signup' => 'registrations#new'
+    post '/signup' => 'registrations#create'
   end
 
   resources :stories
@@ -20,8 +21,9 @@ Rails.application.routes.draw do
 
   resources :users
   get 'code_of_conduct' => 'users#code_of_conduct'
-  post 'code_of_conduct' => 'users#code_of_conduct'
+  post 'code_of_conduct' => 'users#update'
   get 'details' => 'users#details'
+  post 'details' => 'users#update'
 
   namespace :api do
     namespace :v1 do

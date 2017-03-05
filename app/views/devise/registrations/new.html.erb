@@ -1,5 +1,4 @@
 <section class="section">
-    <%= image_tag("background2.png", :class => "bg") %>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter overlay">
             <h2 class="title is-3">Sign up</h2>
@@ -10,6 +9,11 @@
                     <div class="control">
                         <%= f.label :email, class: "label" %>
                         <%= f.email_field :email, autofocus: true, class: "input" %>
+                    </div>
+
+                    <div class="control">
+                        <%= f.label :access_code, class: "label" %>
+                        <%= f.text_field :code, autocomplete: "off", class: "input" %>
                     </div>
 
                     <div class="control">
