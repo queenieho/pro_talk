@@ -96,18 +96,18 @@ ActiveRecord::Schema.define(version: 20170305211035) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                     default: "",    null: false
+    t.string   "encrypted_password",        default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",             default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "gender"
     t.integer  "age"
     t.string   "religion"
@@ -115,7 +115,8 @@ ActiveRecord::Schema.define(version: 20170305211035) do
     t.string   "username"
     t.string   "city"
     t.string   "state"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                     default: false
+    t.boolean  "agrees_to_code_of_conduct", default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

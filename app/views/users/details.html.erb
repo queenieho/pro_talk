@@ -21,23 +21,23 @@
 				  		<%= f.label :religion, class: "label" %>
 				  		<%= f.input_field :religion, class: "input" %>
 				  	</div>
-				  
+
 				  	<div class="control">
 				  		<%= f.label :city, class: "label" %>
 				  		<%= f.input_field :city, class: "input" %>
 				  	</div>
-				  
+
 				  	<div class="control">
 				  		<%= f.label :state, class: "label" %>
 				  		<%= f.input_field :state, class: "input" %>
 				  	</div>
-				  
+
 				  	<div class="control">
-				  		<%= f.button :submit, class: "button is-primary" %>
+				  		<%= f.submit "Save", class: "button is-primary", name: "user_details", value: 'Save' %>
 				  	</div>
 				<% end %>
 			</div>
-		</div>	
+		</div>
 	</div>
-		
+
 </section>

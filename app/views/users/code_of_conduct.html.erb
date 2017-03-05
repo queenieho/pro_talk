@@ -1,1 +1,12 @@
 <h1>Code of Conduct</h1>
+
+<%= simple_form_for @user do |f| %>
+  <div class="control">
+    <%= f.label "I agree to the above-listed code of conduct", class: "checkbox" %>
+    <%= f.input_field :agrees_to_code_of_conduct, error: 'You must agree before viewing stories', as: :boolean  %>
+  </div>
+
+  <div class="control">
+    <%= f.submit "Save", class: "button is-primary", name: "user_conduct", value: 'Save' %>
+  </div>
+<% end %>

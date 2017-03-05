@@ -29,7 +29,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if params[:user_details] == "Save"
+      @user.update(user_params)
+      redirect_to code_of_conduct_path
+    elsif params[:user_conduct] == "Save" && user_params[:agrees_to_code_of_conduct]
+      @user.update(user_params)
+      redirect_to stories_path
+    elsif @user.update(user_params)
       redirect_to user_path
     else
       render :edit
@@ -46,6 +52,7 @@ class UsersController < ApplicationController
   end
 
   def code_of_conduct
+    @user = current_user
   end
 
   def landing
@@ -62,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:age,:city,:gender,:religion,:state,:username)
+    params.require(:user).permit(:age,:city,:gender,:religion,:state,:username,:agrees_to_code_of_conduct)
   end
 
 end

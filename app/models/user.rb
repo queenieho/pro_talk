@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :reactions, through: :user_reactions
+  attr_accessor :code
 end
