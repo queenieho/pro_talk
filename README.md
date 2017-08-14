@@ -1,18 +1,17 @@
-#pro_talk
+# pro_talk
 
-1. clone
-2. pull
-3. bundle
-4.
-```
-rake db:create
-rake db:migrate
-rake db:seed
-rails s
-```
+# Setup
+1. clone source code
+2. use bundle to install dependancies 
+3. create database, run migrations, seed database, start server: 
+  ```
+  rake db:create
+  rake db:migrate
+  rake db:seed
+  rails s
+  ```
 
-
-##Remove data and seed:
+## Remove stored data and add seed data:
 ```
 rake db:drop
 rake db:create
