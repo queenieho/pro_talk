@@ -16,7 +16,6 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
 
 HOSTNAME = ENV['protalk.us']
 
